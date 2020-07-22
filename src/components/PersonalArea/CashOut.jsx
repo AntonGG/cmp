@@ -4,8 +4,10 @@ const CashOut = () => {
   return (
     <div className="cash-out">
       <p>Вывести средства</p>
-      <input placeholder="Введите ваш адрес"/>
-      <button>Выплатить</button>
+      <div className="cash-out__input">
+        <input placeholder="Введите ваш адрес" />
+        <button>Выплатить</button>
+      </div>
     </div>
   );
 };

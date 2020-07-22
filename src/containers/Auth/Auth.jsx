@@ -4,7 +4,7 @@ import { signIn } from "../../actions/Auth";
 
 export class Auth extends Component {
   signIn(email, password) {
-    onSign;
+   
   }
   signUp() {}
   render() {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(signIn());
   },
   onSignUp: (email, password) => {
-    dispatch(signU());
+    dispatch(signUp());
   },
 });
 
