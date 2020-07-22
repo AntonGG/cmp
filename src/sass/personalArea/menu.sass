@@ -1,0 +1,30 @@
+.menu
+    display: flex
+    text-align: center
+    font-weight: bold
+    background-color: #ffffff
+    width: 370px
+    border-radius: 15px
+    margin-bottom: 15px
+    
+.menu-tab
+    margin-right: 5px
+    padding-top: 15px
+    padding-bottom: 15px
+    padding-left: 25px
+    padding-right: 25px
+    border-radius: 15px
+    position: relative
+
+.menu-tab__active:before
+    color: #FF9800
+    content: "\2022"
+    font-size: 26px
+    font-weight: 700
+    left: 13px
+    line-height: 18px
+    position: absolute
+
+.menu-tab__active
+    background-color: #000000
+    color: #ffffff
