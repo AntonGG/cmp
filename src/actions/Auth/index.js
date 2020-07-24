@@ -1,4 +1,5 @@
 import * as Auth from "../../services/Auth/index";
+
 export const signIn = (email, password) => async (dispatch) => {
   dispatch({ type: "START_LOADING" });
 
@@ -26,4 +27,9 @@ export const signUp = (email, password) => async (dispatch) => {
     console.log(e);
   }
   dispatch("FINISH_LOADING");
+};
+
+export const getMnemonicAction = () => async (dispatch) => {
+  const mnemonic = await Auth.getMnemonic();
+  dispatch({ type: "GET_MNEMONIC", payload: mnemonic });
 };
