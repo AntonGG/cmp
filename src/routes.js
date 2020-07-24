@@ -16,48 +16,20 @@ const CreateRoute = (route) => {
   );
 };
 
-// генерирует публичный свитч
-export const RenderPublicRoutes = ({ routes }) => {
+export function RenderRoutes({ routes }) {
+  console.log(routes);
   return (
     <Switch>
       {routes.map((route, i) => {
-        return <CreateRoute key={route.key} {...route} />;
-      })}
-      {/* <Route component={() => <h1>Not Found Public!</h1>} /> */}
-    </Switch>
-  );
-};
-
-//генерирует приватный свитч
-export const RenderPrivateRoutes = ({ routes, isAuth }) => {
-  return isAuth ? (
-    <Switch>
-      {routes.map((route, i) => {
-        return <CreateRoute key={route.key} {...route} />;
-      })}
-      <Route component={() => <h1>Not Found Private!</h1>} />
-    </Switch>
-  ) : (
-    <Redirect to={{ pathname: "/auth/signIn" }} />
-  );
-};
-
-export function RenderRoutes({ routes, isAuth }) {
-  //console.log(routes);
-  return true ? (
-    <Switch>
-      {routes.map((route, i) => {
         console.log(route);
-        return <CreateRoute key={route.key} {...route} isAuth={isAuth} />;
+        return <CreateRoute key={route.key} {...route} />;
       })}
       <Route component={() => <h1>Not Found!</h1>} />
     </Switch>
-  ) : (
-    <h1>Forbidden!</h1>
   );
 }
 
-const ROUTES = [
+const ROUTES = ({ isAuth }) => [
   { path: "/home", key: "ROOT", exact: true, component: () => <h1>HOME</h1> },
   {
     path: "/auth",
@@ -72,7 +44,6 @@ const ROUTES = [
       {
         path: "/auth/signUp",
         key: "AUTH_SIGNUP",
-        exact: true,
         component: SignUp,
       },
     ],
@@ -80,9 +51,9 @@ const ROUTES = [
   {
     path: "/lk",
     key: "LK",
-    component: (props, isAuth) => {
-      console.log(props.isAuth);
-      if (!props) {
+    component: (props) => {
+      console.log("ISAUTH: " + isAuth);
+      if (!isAuth) {
         alert("You need to log in to access app routes");
         return <Redirect to={"/"} />;
       }

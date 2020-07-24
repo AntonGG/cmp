@@ -12,9 +12,7 @@ export class App extends Component {
       <div>
         <AppBar />
         <div className="body">
-          <RenderRoutes routes={ROUTES} isAuth={this.props.isAuth} />
-          {/* <RenderPublicRoutes routes={ROUTES.PUBLIC_ROUTES} /> */}
-          {/* <RenderPrivateRoutes routes={ROUTES.PUBLIC_ROUTES} isAuth={this.props.isAuth} /> */}
+          <RenderRoutes routes={ROUTES({ isAuth: this.props.isAuth })} />
         </div>
         <Footer />
       </div>
@@ -56,7 +54,13 @@ function displayRouteMenu(routes) {
   );
 }
 
-const mapStateToProps = (state) => ({ isAuth: state.User.isAuth });
+const mapStateToProps = (state) => ({
+  isAuth: state.User.isAuth,
+  mnemonic: state.User.mnemonic,
+  isLoading: state.App.isLoading,
+  isError: state.App.isError,
+  errorMsg: state.App.errorMsg,
+});
 
 const mapDispatchToProps = {};
 

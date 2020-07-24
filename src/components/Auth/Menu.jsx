@@ -1,13 +1,19 @@
 import React from "react";
-
+import "../../sass/auth/menu.sass";
 const Menu = (props) => {
   console.log(props.type);
   return (
-    <div className="menu">
-      <div className={`menu-tab ${props.type ? "menu-tab__active" : ""}`}>
+    <div className="auth-menu">
+      <div
+        className={`auth-menu-tab ${props.type ? "auth-menu-tab__active" : ""}`}
+      >
         Вход
       </div>
-      <div className={`menu-tab ${!props.type ? "menu-tab__active" : ""}`}>
+      <div
+        className={`auth-menu-tab ${
+          !props.type ? "auth-menu-tab__active" : ""
+        }`}
+      >
         Регистрация
       </div>
     </div>
