@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer_left-block">
-        <img className="app-bar_logo" src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" />
         <p>(c) 2020 CMP by Gregor</p>
         <Link to="/home">Политика конфиденциальности</Link>
       </div>

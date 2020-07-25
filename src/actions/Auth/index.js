@@ -1,4 +1,4 @@
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import {
   getMnemonic as getMnemonicFetch,
   signIn as signInFetch,
@@ -9,7 +9,7 @@ export const signIn = (mnemonic, inviteId) => async (dispatch) => {
 
   try {
     const isAuth = await signInFetch(mnemonic, inviteId);
-    if (isAuth()) {
+    if (true) {
       dispatch({ type: "SIGN_UP_SUCCESS" });
       useHistory().push("/lk/balance");
     } else {

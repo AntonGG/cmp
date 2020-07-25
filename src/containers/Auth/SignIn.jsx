@@ -30,7 +30,7 @@ class SignIn extends React.Component {
           />
           <div
             onClick={() => onSignIn(inviteId, mnemonic)}
-            class="sign-in__button"
+            className="sign-in__button"
           >
             Войти &#10230;
           </div>
