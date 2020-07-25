@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from "react-router";
 import SignIn from "./containers/Auth/SignIn";
 import SignUp from "./containers/Auth/SignUp";
 import PersonalArea from "./components/PersonalArea/PersonalArea";
+import NotFound from "./components/NotFound/NotFound";
 
 // генерирует Route компонент
 const CreateRoute = (route) => {
@@ -24,12 +25,12 @@ export function RenderRoutes({ routes }) {
         console.log(route);
         return <CreateRoute key={route.key} {...route} />;
       })}
-      <Route component={() => <h1>Not Found!</h1>} />
+      <Route component={() => NotFound()} />
     </Switch>
   );
 }
 
-const ROUTES = ({isAuth}) => [
+const ROUTES = ({ isAuth }) => [
   {
     path: "/",
     key: "ROOT_1",
