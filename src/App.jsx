@@ -12,11 +12,7 @@ export class App extends Component {
       <div>
         <AppBar />
         <div className="body">
-          <RenderRoutes
-            routes={ROUTES({
-              isAuth: this.props.isAuth,
-            })}
-          />
+          <RenderRoutes routes={ROUTES} />
         </div>
         <Footer />
       </div>
@@ -58,8 +54,7 @@ function displayRouteMenu(routes) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  isAuth: state.User.isAuth,
-});
+// const mapStateToProps = (state) => ({
+// });
 
-export default connect(mapStateToProps, null)(App);
+export default connect(null, null)(App);

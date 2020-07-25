@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../sass/personalArea/menu.sass";
 
 const MenuPersonalArea = (props) => {
-  console.log(props.type);
   return (
     <div className="menu">
       <Link to="/lk/balance">

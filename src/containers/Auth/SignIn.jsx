@@ -17,7 +17,7 @@ class SignIn extends React.Component {
             onChange={(event) =>
               this.props.onSetInput({ inviteId: event.target.value })
             }
-            value={this.props.inviteId}
+            //value={this.props.inviteId}
             className="sign-in__input"
             placeholder="ID пользователя"
           />
@@ -29,14 +29,12 @@ class SignIn extends React.Component {
             value={this.props.mnemonic}
             placeholder="Мнемоническая фраза"
           />
-          <Link to="/lk/balance">
-            <div
-              onClick={() => onSignIn(inviteId, mnemonic)}
-              className="sign-in__button"
-            >
-              Войти &#10230;
-            </div>{" "}
-          </Link>
+          <div
+            onClick={() => onSignIn(mnemonic, inviteId)}
+            className="sign-in__button"
+          >
+            Войти &#10230;
+          </div>
           <Link to="/restore-access">Восстановить доступ</Link>
         </div>
       </div>
@@ -54,8 +52,8 @@ const mapDispatchToProps = (dispatch) => {
     onSetInput: (payload) => {
       dispatch(setInput(payload));
     },
-    onSignIn: (inviteId, mnemonic) => {
-      dispatch(signIn(inviteId, mnemonic));
+    onSignIn: (mnemonic, inviteId) => {
+      dispatch(signIn(mnemonic, inviteId));
     },
   };
 };

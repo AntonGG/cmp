@@ -9,7 +9,6 @@ export const getMnemonic = async () => {
     method: "GET",
   });
   const json = await resp.json();
-  console.log(json);
   return json;
 };
 
@@ -23,6 +22,11 @@ export const signIn = async (mnemonic, inviteId) => {
     body: JSON.stringify({ mnemonic, inviter_id: inviteId }),
   });
   const json = await resp.json();
-  console.log(json);
-  return json;
+  if (json.status === "user was saved" && json.token) {
+    console.log(json);
+    localStorage.setItem("token", json.token);
+    return true;
+  } else {
+    return false;
+  }
 };

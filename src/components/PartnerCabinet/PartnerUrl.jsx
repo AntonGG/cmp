@@ -2,7 +2,6 @@ import React from "react";
 import "../../sass/partnerCabinet/partnerUrl.sass";
 
 const PartnerUrl = ({ partnerUrl }) => {
-  console.log(partnerUrl);
   return (
     <div className="partner-url">
       <p>Ваша партнерская ссылка</p>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../../sass/auth/menu.sass";
 
 const Menu = (props) => {
-  console.log(props.type);
   return (
     <div className="auth-menu">
       <Link to="signIn">

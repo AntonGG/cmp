@@ -8,7 +8,6 @@ import PartnerCabinet from "./containers/PartnerCabinet/PartnerCabinet";
 
 // генерирует Route компонент
 const CreateRoute = (route) => {
-  console.log(route);
   return (
     <Route
       path={route.path}
@@ -19,11 +18,9 @@ const CreateRoute = (route) => {
 };
 
 export function RenderRoutes({ routes }) {
-  console.log(routes);
   return (
     <Switch>
       {routes.map((route, i) => {
-        console.log(route);
         return <CreateRoute key={route.key} {...route} />;
       })}
       <Route component={() => NotFound()} />
@@ -31,7 +28,7 @@ export function RenderRoutes({ routes }) {
   );
 }
 
-const ROUTES = ({ isAuth }) => [
+const ROUTES = [
   {
     path: "/",
     key: "ROOT_1",
@@ -60,12 +57,13 @@ const ROUTES = ({ isAuth }) => [
     path: "/lk",
     key: "LK",
     component: (props) => {
-      console.log("ISAUTH: " + isAuth);
-      if (!isAuth) {
+      const token = localStorage.getItem("token");
+      if (token && token !== "") {
+        return <RenderRoutes {...props} />;
+      } else {
         alert("You need to log in to access app routes");
         return <Redirect to={"/"} />;
       }
-      return <RenderRoutes {...props} />;
     },
     routes: [
       {

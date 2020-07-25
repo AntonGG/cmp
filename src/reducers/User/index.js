@@ -1,5 +1,4 @@
 const initialState = {
-  isAuth: true,
   mnemonic: "",
   inviteId: "0",
   partnerUrl:"cmp.ru/sdfsdf/w/23d/e"
