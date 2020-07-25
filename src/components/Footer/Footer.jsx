@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/AppBar/logo.png";
-import "../../sass/footer/footer.sass";
+import "../../sass/footer.sass";
 const Footer = () => {
   return (
     <div className="footer">

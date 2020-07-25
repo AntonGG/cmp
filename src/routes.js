@@ -4,6 +4,7 @@ import SignIn from "./containers/Auth/SignIn";
 import SignUp from "./containers/Auth/SignUp";
 import PersonalArea from "./components/PersonalArea/PersonalArea";
 import NotFound from "./components/NotFound/NotFound";
+import PartnerCabinet from "./containers/PartnerCabinet/PartnerCabinet";
 
 // генерирует Route компонент
 const CreateRoute = (route) => {
@@ -71,6 +72,11 @@ const ROUTES = ({ isAuth }) => [
         path: "/lk/balance",
         key: "LK_BALANCE",
         component: PersonalArea,
+      },
+      {
+        path: "/lk/partner-cabinet",
+        key: "LK_PARTNER_CABINET",
+        component: PartnerCabinet,
       },
     ],
   },

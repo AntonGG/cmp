@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/personalArea/cashOut.sass";
+import "../sass/cashOut.sass";
 const CashOut = () => {
   return (
     <div className="cash-out">

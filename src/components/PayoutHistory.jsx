@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/personalArea/payoutHistory.sass";
+import "../sass/payoutHistory.sass";
 const PayoutHistory = () => {
   return (
     <div className="payout-history">

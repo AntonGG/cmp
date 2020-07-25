@@ -1,20 +1,21 @@
 import React from "react";
 import Balance from "./Balance";
-import Menu from "./Menu";
-import PayoutHistory from "./PayoutHistory";
-import WithdrawFunds from "./CashOut";
+import PayoutHistory from "../PayoutHistory";
 import "../../sass/personalArea/personalArea.sass";
 import Partners from "./Partners";
 import LastCompletedTasks from "./LastCompletedTasks";
+import MenuPersonalArea from "../MenuPersonalArea";
+import CashOut from "../CashOut";
+
 const PersonalArea = () => {
   return (
     <div className="personal-area">
       <p className="title">Личный кабинет</p>
-      <Menu type={true} />
+      <MenuPersonalArea type={true} />
       <div className="personal-area__body">
         <div>
           <Balance />
-          <WithdrawFunds />
+          <CashOut />
           <PayoutHistory />
         </div>
         <div>

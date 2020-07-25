@@ -4,8 +4,8 @@ import settingsLogo from "../../../images/AppBar/settings.png";
 const RightMenu = () => {
   return (
     <div className="right-menu">
-      <Link to="/auth/signIn">Sign In</Link>
-      <Link to="/auth/signUp">Create an account</Link>
+      <Link to="/auth/signIn">Вход</Link>
+      <Link to="/auth/signUp">Регистрация</Link>
       <Link to="/home">
         <img className="app-bar_settings-logo" src={settingsLogo} alt="Logo" />
       </Link>

@@ -3,6 +3,7 @@ import "../../sass/auth/signIn.sass";
 import Menu from "../../components/Auth/Menu";
 import { connect } from "react-redux";
 import { setInput, signIn } from "../../actions/Auth";
+import { Link } from "react-router-dom";
 
 class SignIn extends React.Component {
   render() {
@@ -28,12 +29,15 @@ class SignIn extends React.Component {
             value={this.props.mnemonic}
             placeholder="Мнемоническая фраза"
           />
-          <div
-            onClick={() => onSignIn(inviteId, mnemonic)}
-            className="sign-in__button"
-          >
-            Войти &#10230;
-          </div>
+          <Link to="/lk/balance">
+            <div
+              onClick={() => onSignIn(inviteId, mnemonic)}
+              className="sign-in__button"
+            >
+              Войти &#10230;
+            </div>{" "}
+          </Link>
+          <Link to="/restore-access">Восстановить доступ</Link>
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../sass/notFound/notFound.sass";
+import "../../sass/notFound.sass";
 const NotFound = () => {
   return (
     <div className="not-found">
