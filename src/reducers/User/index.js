@@ -1,11 +1,12 @@
 const initialState = {
   isAuth: true,
-  mnemonic: null,
+  mnemonic: "",
+  inviteId: "0",
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case "GET_MNEMONIC":
+    case "SET_INPUT":
       return { ...state, ...payload };
     case "SIGN_IN_SUCCESS":
       return { ...state, authStatus: true };

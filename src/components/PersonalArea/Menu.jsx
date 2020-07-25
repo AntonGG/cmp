@@ -8,6 +8,7 @@ const Menu = (props) => {
       <div className={`menu-tab ${props.type ? "menu-tab__active" : ""}`}>
         <span> Финансы</span>
       </div>
+
       <div className={`menu-tab ${!props.type ? "menu-tab__active" : ""}`}>
         Партнерский кабинет
       </div>

@@ -1,35 +1,31 @@
-import * as Auth from "../../services/Auth/index";
+import { useHistory } from "react-router";
+import {
+  getMnemonic as getMnemonicFetch,
+  signIn as signInFetch,
+} from "../../services/Auth/index";
 
-export const signIn = (email, password) => async (dispatch) => {
+export const signIn = (mnemonic, inviteId) => async (dispatch) => {
   dispatch({ type: "START_LOADING" });
 
   try {
-    if (Auth.signIn()) {
-      dispatch({ type: "SIGN_IN_SUCCESS" });
-    } else {
-      dispatch({ type: "SIGN_IN_INVALID" });
-    }
-  } catch (e) {
-    console.log(e);
-  }
-  dispatch("FINISH_LOADING");
-};
-export const signUp = (email, password) => async (dispatch) => {
-  dispatch({ type: "START_LOADING" });
-
-  try {
-    if (Auth.signIn()) {
+    const isAuth = await signInFetch(mnemonic, inviteId);
+    if (isAuth()) {
       dispatch({ type: "SIGN_UP_SUCCESS" });
+      useHistory().push("/lk/balance");
     } else {
       dispatch({ type: "SIGN_UP_INVALID" });
     }
   } catch (e) {
     console.log(e);
   }
-  dispatch("FINISH_LOADING");
+  dispatch({ type: "FINISH_LOADING" });
 };
 
-export const getMnemonicAction = () => async (dispatch) => {
-  const mnemonic = await Auth.getMnemonic();
-  dispatch({ type: "GET_MNEMONIC", payload: mnemonic });
+export const getMnemonic = () => async (dispatch) => {
+  const mnemonic = await getMnemonicFetch();
+  dispatch({ type: "SET_INPUT", payload: mnemonic });
+};
+
+export const setInput = (payload) => async (dispatch) => {
+  dispatch({ type: "SET_INPUT", payload });
 };

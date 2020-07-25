@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
-import SignIn from "./components/Auth/SignIn";
-import SignUp from "./components/Auth/SignUp";
+import SignIn from "./containers/Auth/SignIn";
+import SignUp from "./containers/Auth/SignUp";
 import PersonalArea from "./components/PersonalArea/PersonalArea";
 
 // генерирует Route компонент
@@ -29,7 +29,13 @@ export function RenderRoutes({ routes }) {
   );
 }
 
-const ROUTES = ({ isAuth }) => [
+const ROUTES = ({isAuth}) => [
+  {
+    path: "/",
+    key: "ROOT_1",
+    exact: true,
+    component: () => <Redirect to={"/auth/signIn"} />,
+  },
   { path: "/home", key: "ROOT", exact: true, component: () => <h1>HOME</h1> },
   {
     path: "/auth",
