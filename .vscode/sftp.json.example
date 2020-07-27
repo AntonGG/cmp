@@ -1,0 +1,16 @@
+{
+    "name": "CMP",
+    "host": "***",
+    "protocol": "sftp",
+    "port": 22,
+    "username": "***",
+    "password": "***",
+    "context": "build/",
+    "remotePath": "www/",
+    "uploadOnSave": true,
+    "watcher": {
+        "files": "*",
+        "autoUpload": true,
+        "autoDelete": false
+    }
+}
