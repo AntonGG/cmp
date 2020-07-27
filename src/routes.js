@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 import SignIn from "./containers/Auth/SignIn";
 import SignUp from "./containers/Auth/SignUp";
-import PersonalArea from "./components/PersonalArea/PersonalArea";
+import PersonalArea from "./containers/PersonalArea/PersonalArea";
 import NotFound from "./components/NotFound/NotFound";
 import PartnerCabinet from "./containers/PartnerCabinet/PartnerCabinet";
 
@@ -58,7 +58,8 @@ const ROUTES = [
     key: "LK",
     component: (props) => {
       const token = localStorage.getItem("token");
-      if (token && token !== "") {
+      console.log(token);
+      if (token) {
         return <RenderRoutes {...props} />;
       } else {
         alert("You need to log in to access app routes");

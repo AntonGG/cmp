@@ -15,7 +15,6 @@ const Balance = () => {
           <div className="balance__select-arrow"></div>
         </div>
       </div>
-      <hr />
       <div className="balance__bottom-block">
         <div>
           <p className="balance__minutes">1027</p>

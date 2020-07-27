@@ -7,8 +7,8 @@ import ListedUsers from "../../components/PartnerCabinet/ListedUsers";
 import PartnerUrl from "../../components/PartnerCabinet/PartnerUrl";
 import PayoutHistory from "../../components/PayoutHistory";
 import "../../sass/partnerCabinet/partnerCabinet.sass";
-
 export class PartnerCabinet extends Component {
+ 
   render() {
     return (
       <div className="partner-cabinet-area">
@@ -20,7 +20,7 @@ export class PartnerCabinet extends Component {
             <ListedUsers />
           </div>
           <div className="partner-cabinet__right-block">
-            <Balance />
+            {/* <Balance /> */}
             <CashOut />
             <PayoutHistory />
           </div>
@@ -34,6 +34,5 @@ const mapStateToProps = (state) => ({
   partnerUrl: state.User.partnerUrl,
 });
 
-const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(PartnerCabinet);
+export default connect(mapStateToProps, null)(PartnerCabinet);

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "../../sass/auth/signUp.sass";
 import Menu from "../../components/Auth/Menu";
-import { getMnemonic } from "../../actions/Auth/index";
+import { getMnemonic, signUp } from "../../actions/Auth/index";
 import { connect } from "react-redux";
-
+import copyToClipboard from "../../utils/copyToClipboard";
 class SignUp extends Component {
   render() {
-    const { mnemonic, onGetMnemonic } = this.props;
+    const { mnemonic, onGetMnemonic, onSignUp } = this.props;
+
     return (
       <div className="sign-up">
         <Menu type={false} />
@@ -19,7 +20,10 @@ class SignUp extends Component {
               readOnly="readOnly"
               value={mnemonic}
             />
-            <div className="sign-up__copy-button">
+            <div
+              onClick={copyToClipboard(mnemonic)}
+              className="sign-up__copy-button"
+            >
               <svg
                 fill="#fff"
                 viewBox="0 0 24 24"
@@ -37,6 +41,12 @@ class SignUp extends Component {
           <div onClick={() => onGetMnemonic()} className="sign-up__button">
             Получить мнемоническую фразу
           </div>
+          <div
+            onClick={() => onSignUp(this.props.mnemonic, this.props.history)}
+            className="sign-up__button"
+          >
+            Зарегистрироваться
+          </div>
         </div>
       </div>
     );
@@ -52,6 +62,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onGetMnemonic: () => {
       dispatch(getMnemonic());
+    },
+    onSignUp: (mnemonic, history) => {
+      dispatch(signUp(mnemonic, history));
     },
   };
 };

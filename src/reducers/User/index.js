@@ -1,7 +1,11 @@
 const initialState = {
   mnemonic: "",
   inviteId: "0",
-  partnerUrl:"cmp.ru/sdfsdf/w/23d/e"
+  partnerUrl: "",
+  inviters: 0,
+  invitedBy: 0,
+  wallets: [],
+  currentWallet: 0, //index
 };
 
 export default (state = initialState, { type, payload }) => {

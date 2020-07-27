@@ -5,13 +5,13 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import history from "./history";
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename="/cmp" history={history}>
+    <HashRouter history={history}>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );

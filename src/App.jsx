@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import AppBar from "./components/AppBar/AppBar";
+import AppBar from "./containers/AppBar/AppBar";
 import ROUTES, { RenderRoutes } from "./routes";
 import "./App.sass";
 import Footer from "./components/Footer/Footer";

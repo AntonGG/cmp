@@ -1,21 +1,23 @@
 import React from "react";
 import "../../sass/personalArea/balance.sass";
 import refreshLogo from "../../images/PersonalArea/Refresh.png";
-const Balance = () => {
+const Balance = ({ wallets, currentWallet, setCurrentWallet }) => {
+  console.log("wallets");
+  console.log(wallets);
   return (
     <div className="balance">
       <div className="balance__top-block">
         <div className="balance__select">
-          <select>
-            <option>BTC</option>
-            <option>ETH</option>
-            <option>USD</option>
-            <option>BNB</option>
+          <select
+            value={currentWallet}
+            onChange={(event) => setCurrentWallet(event.target.value)}
+          >
+            {wallets.map((v, i) => (
+              <option value={i}>{v.currency}</option>
+            ))}
           </select>
-          <div className="balance__select-arrow"></div>
         </div>
       </div>
-      <hr />
       <div className="balance__bottom-block">
         <div>
           <p className="balance__minutes">1027</p>
@@ -31,7 +33,8 @@ const Balance = () => {
           <div className="balance__refresh-logo-div">
             <img src={refreshLogo} alt="Logo" />
             <p className="balance__count">
-              930<span className="dollar">/$</span>
+              {wallets.length > 0 ? wallets[currentWallet].balance : "0"}
+              <span className="dollar">/$</span>
             </p>
           </div>
           <p className="balance__dash__orange">&mdash;</p>

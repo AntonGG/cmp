@@ -2,7 +2,6 @@
   "name": "cmp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://antongg.github.io/cmp",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
@@ -53,6 +52,7 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-use-clipboard": "^1.0.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "resolve": "1.15.0",
@@ -63,6 +63,7 @@
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
+    "use-clipboard-copy": "^0.1.2",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",

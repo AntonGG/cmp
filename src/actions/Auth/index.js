@@ -1,10 +1,15 @@
-import history from "../../history";
 import {
   getMnemonic as getMnemonicFetch,
+  signUp as signUpFetch,
   signIn as signInFetch,
-} from "../../services/Auth/index";
+} from "../../services/auth";
+import { setCurrentWallet } from "../User";
 
-export const signIn = (mnemonic, inviteId) => async (dispatch) => {
+export const setInput = (payload) => async (dispatch) => {
+  dispatch({ type: "SET_INPUT", payload });
+};
+
+export const signIn = (mnemonic, inviteId, history) => async (dispatch) => {
   dispatch({ type: "START_LOADING" });
 
   try {
@@ -27,6 +32,21 @@ export const getMnemonic = () => async (dispatch) => {
   dispatch({ type: "SET_INPUT", payload: mnemonic });
 };
 
-export const setInput = (payload) => async (dispatch) => {
-  dispatch({ type: "SET_INPUT", payload });
+export const signUp = (mnemonic, history) => async (dispatch) => {
+  dispatch({ type: "START_LOADING" });
+
+  try {
+    const isAuth = await signUpFetch(mnemonic);
+    console.log("isAuth " + isAuth);
+    if (isAuth) {
+      dispatch({ type: "SIGN_UP_SUCCESS" });
+      dispatch({ type: "SET_INPUT", payload: { ...isAuth } });
+      history.push("/lk/balance");
+    } else {
+      dispatch({ type: "SIGN_UP_INVALID" });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+  dispatch({ type: "FINISH_LOADING" });
 };
