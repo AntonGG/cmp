@@ -1,5 +1,7 @@
 import React from "react";
 import "../sass/cashIn.sass";
+import copyToClipboard from "../utils/copyToClipboard";
+
 const CashIn = ({ wallets, currentWallet }) => {
   return (
     <div className="cash-in">
@@ -9,7 +11,12 @@ const CashIn = ({ wallets, currentWallet }) => {
           placeholder="Ваш адрес"
           value={wallets[currentWallet] ? wallets[currentWallet].address : ""}
         />
-        <div className="cash-in__copy-button">
+        <div
+          onClick={copyToClipboard(
+            wallets[currentWallet] ? wallets[currentWallet].address : ""
+          )}
+          className="cash-in__copy-button"
+        >
           <svg
             fill="#fff"
             viewBox="0 0 24 24"

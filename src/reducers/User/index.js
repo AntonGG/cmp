@@ -4,8 +4,22 @@ const initialState = {
   partnerUrl: "",
   inviters: 0,
   invitedBy: 0,
-  wallets: [],
+  wallets: [{ currency: "BTC", address: "", balance: "0" }],
   currentWallet: 0, //index
+  lastCompletedTasks: [
+    {
+      name: "Webtoken Profit",
+      type: "application",
+      time: "+17",
+      status: "waiting",
+    },
+    {
+      name: "Webtoken Profit",
+      type: "application",
+      time: "+17",
+      status: "waiting",
+    },
+  ],
 };
 
 export default (state = initialState, { type, payload }) => {

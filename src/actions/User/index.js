@@ -1,8 +1,10 @@
-import { initWal } from "../../services/user";
+import { getWallets } from "../../services/user";
 
 export const getWalletsAndPartners = () => async (dispatch) => {
-  const wallets = await initWal();
-  dispatch({ type: "SET_INPUT", payload: wallets });
+  console.log("getWalletsAndPartners");
+  const json = await getWallets();
+  console.log(json);
+  dispatch({ type: "SET_INPUT", payload: json });
 };
 
 export const setCurrentWallet = (currentWallet) => async (dispatch) => {

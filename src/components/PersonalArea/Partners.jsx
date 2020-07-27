@@ -1,17 +1,18 @@
 import React from "react";
 import "../../sass/personalArea/partners.sass";
+import invitersLogo from "../../images/PersonalArea/inviters.png";
 
 const Partners = ({ inviters, wallet }) => {
   return (
     <div className="partners">
       <div className="partners__count">
-        <div className="partners__circle"></div>
+        <img className="partners__logo" src={invitersLogo} alt="Logo" />
         <span className="partners__sum">{inviters}</span>
         <span className="partners__you-brought">Партнеров вы привели</span>
       </div>
       <div className="partners__balance-cmp">
         <span className="partners__balance-cmp__info">
-          {wallet ? wallet.balance : "NaN"}
+          {wallet ? wallet.balance : "0"}
         </span>
         <span className="partners__balance-cmp__text">Баланс cmp</span>
       </div>

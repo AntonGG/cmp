@@ -12,7 +12,7 @@ import { getWalletsAndPartners, setCurrentWallet } from "../../actions/User";
 
 class PersonalArea extends Component {
   componentDidMount() {
-    // this.props.onGetWalletsAndPartners();
+    this.props.onGetWalletsAndPartners();
   }
   render() {
     return (
@@ -26,8 +26,10 @@ class PersonalArea extends Component {
               currentWallet={this.props.currentWallet}
               setCurrentWallet={this.props.onSetCurrentWallet}
             />
-            <CashIn  wallets={this.props.wallets}
-              currentWallet={this.props.currentWallet}/>
+            <CashIn
+              wallets={this.props.wallets}
+              currentWallet={this.props.currentWallet}
+            />
             <CashOut />
             <PayoutHistory />
           </div>
@@ -36,7 +38,9 @@ class PersonalArea extends Component {
               wallet={this.props.wallets.find((v) => v.currency === "CMP")}
               inviters={this.props.inviters}
             />
-            <LastCompletedTasks />
+            <LastCompletedTasks
+              lastCompletedTasks={this.props.lastCompletedTasks}
+            />
           </div>
         </div>
       </div>
@@ -48,11 +52,13 @@ const mapStateToProps = (state) => ({
   inviters: state.User.inviters,
   wallets: state.User.wallets,
   currentWallet: state.User.currentWallet,
+  lastCompletedTasks: state.User.lastCompletedTasks,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetWalletsAndPartners: () => {
+      console.log("onGetWalletsAndPartners");
       dispatch(getWalletsAndPartners());
     },
     onSetCurrentWallet: (currentWallet) => {
