@@ -12,17 +12,17 @@ export const getMnemonic = async () => {
   return json;
 };
 
-export const signIn = async (mnemonic, inviteId) => {
-  const resp = await fetch(`${config.url}/users/`, {
+export const signIn = async (mnemonic) => {
+  const resp = await fetch(`${config.url}/users/log_in/`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify({ mnemonic, inviter_id: inviteId }),
+    body: JSON.stringify({ mnemonic }),
   });
   const json = await resp.json();
-  if (json.status === "user was saved" && json.token) {
+  if (json.token) {
     console.log(json);
     localStorage.setItem("token", json.token);
     return json;

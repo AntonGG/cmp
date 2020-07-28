@@ -1,7 +1,12 @@
 import React from "react";
 import "../../sass/personalArea/balance.sass";
 import refreshLogo from "../../images/PersonalArea/Refresh.png";
-const Balance = ({ wallets, currentWallet, setCurrentWallet }) => {
+const Balance = ({
+  wallets,
+  currentWallet,
+  setCurrentWallet,
+  onGetWallets,
+}) => {
   console.log("wallets");
   console.log(wallets);
   return (
@@ -31,7 +36,12 @@ const Balance = ({ wallets, currentWallet, setCurrentWallet }) => {
         </div>
         <div className="balance__div__black">
           <div className="balance__refresh-logo-div">
-            <img src={refreshLogo} alt="Logo" />
+            <img
+              className="balance__refresh-logo"
+              onClick={() => onGetWallets()}
+              src={refreshLogo}
+              alt="Logo"
+            />
             <p className="balance__count">
               {wallets.length > 0 ? wallets[currentWallet].balance : "0"}
               <span className="dollar">/$</span>

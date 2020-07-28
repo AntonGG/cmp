@@ -4,6 +4,7 @@ import logo from "../../images/AppBar/logo.png";
 import "../../sass/appBar.sass";
 import RightMenu from "../../components/AppBar/RightMenu/RightMenu";
 import { connect } from "react-redux";
+import { logout } from "../../actions/Auth";
 
 class AppBar extends Component {
   render() {
@@ -13,22 +14,27 @@ class AppBar extends Component {
           <img className="app-bar_logo" src={logo} alt="Logo" />
           <LeftMenu />
         </div>
-        <RightMenu isAuth={this.props.isAuth} />
+        <RightMenu
+          isAuth={this.props.isAuth}
+          onLogout={() => this.props.onLogout(this.props.history)}
+          history={this.props.history}
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  isAuth: state.User.isAuth,
+  isAuth: state.App.isAuth,
 });
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onSetInput: (payload) => {
-//       dispatch(setInput(payload));
-//     },
-//   };
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: (history) => {
+      console.log("history", history);
+      dispatch(logout(history));
+    },
+  };
+};
 
-export default connect(mapStateToProps, null)(AppBar);
+export default connect(mapStateToProps, mapDispatchToProps)(AppBar);

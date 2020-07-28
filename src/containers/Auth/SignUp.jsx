@@ -4,6 +4,7 @@ import Menu from "../../components/Auth/Menu";
 import { getMnemonic, signUp } from "../../actions/Auth/index";
 import { connect } from "react-redux";
 import copyToClipboard from "../../utils/copyToClipboard";
+import Loading from "../../components/Loading";
 class SignUp extends Component {
   render() {
     const { mnemonic, onGetMnemonic, onSignUp } = this.props;
@@ -21,20 +22,24 @@ class SignUp extends Component {
               value={mnemonic}
             />
             <div
-              onClick={copyToClipboard(mnemonic)}
+              onClick={() => copyToClipboard(mnemonic)}
               className="auth__copy-button"
             >
               <p>Копировать</p>
             </div>
           </div>
           <div onClick={() => onGetMnemonic()} className="auth__button">
-            Получить мнемоническую фразу
+            {this.props.isLoadingGetMnemonic ? (
+              <Loading />
+            ) : (
+              "Получить мнемоническую фразу"
+            )}
           </div>
           <div
             onClick={() => onSignUp(this.props.mnemonic, this.props.history)}
             className="auth__button"
           >
-            Зарегистрироваться
+            {this.props.isLoadingSignUp ? <Loading /> : "Зарегистрироваться"}
           </div>
         </div>
       </div>
@@ -45,7 +50,8 @@ class SignUp extends Component {
 const mapStateToProps = (state) => ({
   mnemonic: state.User.mnemonic,
   inviteId: state.User.inviteId,
-  isLoading: state.Auth.isLoading,
+  isLoadingGetMnemonic: state.App.isLoadingGetMnemonic,
+  isLoadingSignUp: state.App.isLoadingSignUp,
 });
 
 const mapDispatchToProps = (dispatch) => {

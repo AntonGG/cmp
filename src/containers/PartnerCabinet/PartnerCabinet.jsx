@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getWalletsAndPartners, setCurrentWallet } from "../../actions/User";
 import CashOut from "../../components/CashOut";
 import MenuPersonalArea from "../../components/MenuPersonalArea";
-import Balance from "../../components/PartnerCabinet/Balance";
+import Balance from "../../components/PersonalArea/Balance";
 import ListedUsers from "../../components/PartnerCabinet/ListedUsers";
 import PartnerUrl from "../../components/PartnerCabinet/PartnerUrl";
 import PayoutHistory from "../../components/PayoutHistory";
@@ -24,6 +24,7 @@ export class PartnerCabinet extends Component {
               wallets={this.props.wallets}
               currentWallet={this.props.currentWallet}
               setCurrentWallet={this.props.onSetCurrentWallet}
+              onGetWallets={this.props.onGetWalletsAndPartners}
             />
             <CashOut />
             <PayoutHistory />

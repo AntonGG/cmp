@@ -25,6 +25,7 @@ class PersonalArea extends Component {
               wallets={this.props.wallets}
               currentWallet={this.props.currentWallet}
               setCurrentWallet={this.props.onSetCurrentWallet}
+              onGetWallets={this.props.onGetWalletsAndPartners}
             />
             <CashIn
               wallets={this.props.wallets}

@@ -6,8 +6,16 @@ import ROUTES, { RenderRoutes } from "./routes";
 import "./App.sass";
 import Footer from "./components/Footer/Footer";
 import "./fonts/GothamPro/stylesheet.css";
+import { setInput } from "./actions/Auth";
 
 export class App extends Component {
+  componentDidMount() {
+    if (!this.props.isAuth) {
+      if (localStorage.getItem("token")) {
+        this.props.onIsAuth();
+      }
+    }
+  }
   render() {
     return (
       <div>
@@ -55,7 +63,16 @@ function displayRouteMenu(routes) {
   );
 }
 
-// const mapStateToProps = (state) => ({
-// });
+const mapStateToProps = (state) => ({
+  isAuth: state.App.isAuth,
+});
 
-export default connect(null, null)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onIsAuth: () => {
+      dispatch(setInput({ isAuth: true }));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

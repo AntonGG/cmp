@@ -23,7 +23,7 @@ class SignIn extends React.Component {
           />
 
           <div
-            onClick={() => onSignIn(mnemonic, inviteId, this.props.history)}
+            onClick={() => onSignIn(this.props.mnemonic, this.props.history)}
             className="auth__button"
           >
             Войти &#10230;
@@ -45,8 +45,8 @@ const mapDispatchToProps = (dispatch) => {
     onSetInput: (payload) => {
       dispatch(setInput(payload));
     },
-    onSignIn: (mnemonic, inviteId, history) => {
-      dispatch(signIn(mnemonic, inviteId, history));
+    onSignIn: (mnemonic, history) => {
+      dispatch(signIn(mnemonic, history));
     },
   };
 };

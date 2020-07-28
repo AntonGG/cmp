@@ -26,10 +26,8 @@ export default (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_INPUT":
       return { ...state, ...payload };
-    case "SIGN_IN_SUCCESS":
-      return { ...state, authStatus: true };
-    case "SIGN_IN_INVALID":
-      return { ...state, authStatus: false };
+    case "DELETE_MNEMONIC":
+      return { ...state, mnemonic: "" };
     default:
       return state;
   }

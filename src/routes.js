@@ -63,7 +63,7 @@ const ROUTES = [
       if (token) {
         return <RenderRoutes {...props} />;
       } else {
-        alert("You need to log in to access app routes");
+        //alert("You need to log in to access app routes");
         return <Redirect to={"/"} />;
       }
     },
