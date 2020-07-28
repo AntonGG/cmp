@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/auth/signIn.sass";
+import "../../sass/auth/auth.sass";
 import Menu from "../../components/Auth/Menu";
 import { connect } from "react-redux";
 import { setInput, signIn } from "../../actions/Auth";
@@ -9,30 +9,22 @@ class SignIn extends React.Component {
   render() {
     const { inviteId, mnemonic, onSignIn } = this.props;
     return (
-      <div className="sign-in">
+      <div className="auth">
         <Menu type={true} />
-        <div className="sign-in__text-area">
+        <div className="auth__text-area">
           <h3>Войдите в систему</h3>
-          <input
-            onChange={(event) =>
-              this.props.onSetInput({ inviteId: event.target.value })
-            }
-            //value={this.props.inviteId}
-            className="sign-in__input"
-            placeholder="ID пользователя"
-          />
           <input
             onChange={(event) =>
               this.props.onSetInput({ mnemonic: event.target.value })
             }
-            className="sign-in__input"
+            className="auth__input"
             value={this.props.mnemonic}
             placeholder="Мнемоническая фраза"
           />
 
           <div
             onClick={() => onSignIn(mnemonic, inviteId, this.props.history)}
-            className="sign-in__button"
+            className="auth__button"
           >
             Войти &#10230;
           </div>
@@ -54,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setInput(payload));
     },
     onSignIn: (mnemonic, inviteId, history) => {
-      dispatch(signIn(mnemonic, inviteId,history));
+      dispatch(signIn(mnemonic, inviteId, history));
     },
   };
 };

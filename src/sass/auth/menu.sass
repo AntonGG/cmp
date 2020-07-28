@@ -15,17 +15,25 @@
     padding-left: 25px
     padding-right: 25px
     border-radius: 15px
-    position: relative
     color: #6a6a6a
 
-.auth-menu-tab__active:before
-    color: #FF9800
-    content: "\2022"
-    font-size: 26px
-    font-weight: 700
-    left: 13px
-    line-height: 18px
+.auth-menu__glow-circle-div
+    position: relative
+.auth-menu__glow-circle
+    width: 8px
+    height: 8px
+    left: 10px
+    top: 19px
     position: absolute
+    background-color: #FF8929
+    border-radius: 50%
+    box-shadow: 0 0 15px 5px #FF8929
+    // animation: shadow 1s infinite alternate
+    // @keyframes shadow
+    //     from
+    //         box-shadow: 0 0 550px 20px #FF8929
+    //     to
+            // box-shadow: 0 0 900px 40px #FF8929
 
 .auth-menu-tab__active
     background-color: #000000

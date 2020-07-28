@@ -21,11 +21,13 @@ const LastCompletedTasks = ({ lastCompletedTasks }) => {
                 : "last-completed-tasks__table-row__active"
             }
           >
-            <img
-              className="last-completed-tasks__logo"
-              src={timeLogo}
-              alt="Logo"
-            />
+            <div className="last-completed-tasks__logo-div">
+              <img
+                className="last-completed-tasks__logo"
+                src={timeLogo}
+                alt="Logo"
+              />
+            </div>
             <div className="last-completed-tasks__row-title">
               <p className="last-completed-tasks__name">{v.name}</p>
               <p>{v.type}</p>

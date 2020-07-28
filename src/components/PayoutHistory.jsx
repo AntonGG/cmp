@@ -12,17 +12,17 @@ const PayoutHistory = () => {
       <table className="payout-history__table">
         <tr>
           <td>22.01.2020</td>
-          <td>В обработке</td>
+          <td>Выполнено</td>
           <td>135 токенов</td>
         </tr>
         <tr className="payout-history__tr-td__gray">
           <td>22.01.2020</td>
-          <td>В обработке</td>
+          <td>Выполнено</td>
           <td>135 токенов</td>
         </tr>
         <tr>
           <td>22.01.2020</td>
-          <td>В обработке</td>
+          <td style={{ color: "orange" }}>В обработке</td>
           <td>135 токенов</td>
         </tr>
       </table>

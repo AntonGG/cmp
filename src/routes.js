@@ -5,6 +5,7 @@ import SignUp from "./containers/Auth/SignUp";
 import PersonalArea from "./containers/PersonalArea/PersonalArea";
 import NotFound from "./components/NotFound/NotFound";
 import PartnerCabinet from "./containers/PartnerCabinet/PartnerCabinet";
+import TaskFeed from "./containers/TaskFeed/TaskFeed";
 
 // генерирует Route компонент
 const CreateRoute = (route) => {
@@ -76,6 +77,11 @@ const ROUTES = [
         path: "/lk/partner-cabinet",
         key: "LK_PARTNER_CABINET",
         component: PartnerCabinet,
+      },
+      {
+        path: "/lk/task-feed",
+        key: "LK_TASK_FEED",
+        component: TaskFeed,
       },
     ],
   },

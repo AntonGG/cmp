@@ -28,8 +28,10 @@ export const signIn = (mnemonic, inviteId, history) => async (dispatch) => {
 };
 
 export const getMnemonic = () => async (dispatch) => {
+  dispatch({ type: "START_LOADING" });
   const mnemonic = await getMnemonicFetch();
   dispatch({ type: "SET_INPUT", payload: mnemonic });
+  dispatch({ type: "FINISH_LOADING" });
 };
 
 export const signUp = (mnemonic, history) => async (dispatch) => {
@@ -37,6 +39,7 @@ export const signUp = (mnemonic, history) => async (dispatch) => {
 
   try {
     const isAuth = await signUpFetch(mnemonic);
+    dispatch({ type: "FINISH_LOADING" });
     console.log("isAuth " + isAuth);
     if (isAuth) {
       dispatch({ type: "SIGN_UP_SUCCESS" });
@@ -48,5 +51,4 @@ export const signUp = (mnemonic, history) => async (dispatch) => {
   } catch (e) {
     console.log(e);
   }
-  dispatch({ type: "FINISH_LOADING" });
 };

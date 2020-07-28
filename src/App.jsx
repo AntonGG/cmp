@@ -5,6 +5,7 @@ import AppBar from "./containers/AppBar/AppBar";
 import ROUTES, { RenderRoutes } from "./routes";
 import "./App.sass";
 import Footer from "./components/Footer/Footer";
+import "./fonts/GothamPro/stylesheet.css";
 
 export class App extends Component {
   render() {

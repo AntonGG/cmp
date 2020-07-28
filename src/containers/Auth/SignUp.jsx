@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../sass/auth/signUp.sass";
+import "../../sass/auth/auth.sass";
 import Menu from "../../components/Auth/Menu";
 import { getMnemonic, signUp } from "../../actions/Auth/index";
 import { connect } from "react-redux";
@@ -9,41 +9,30 @@ class SignUp extends Component {
     const { mnemonic, onGetMnemonic, onSignUp } = this.props;
 
     return (
-      <div className="sign-up">
+      <div className="auth">
         <Menu type={false} />
-        <div className="sign-up__text-area">
+        <div className="auth__text-area">
           <h3>Регистрация</h3>
-          <div className="sign-up__input-div">
+          <div className="auth__input-div">
             <input
-              className="sign-up__input"
+              className="auth__input"
               placeholder="Мнемоническая фраза"
               readOnly="readOnly"
               value={mnemonic}
             />
             <div
               onClick={copyToClipboard(mnemonic)}
-              className="sign-up__copy-button"
+              className="auth__copy-button"
             >
-              <svg
-                fill="#fff"
-                viewBox="0 0 24 24"
-                height="24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  xmlns="http://www.w3.org/2000/svg"
-                  d="M16 1H4a2 2 0 00-2 2v14h2V3h12V1zm3 4H8a2 2 0 00-2 2v14c0 1.1.9 2 2 2h11a2 2 0 002-2V7a2 2 0 00-2-2zm0 16H8V7h11v14z"
-                ></path>
-              </svg>
+              <p>Копировать</p>
             </div>
           </div>
-          <div onClick={() => onGetMnemonic()} className="sign-up__button">
+          <div onClick={() => onGetMnemonic()} className="auth__button">
             Получить мнемоническую фразу
           </div>
           <div
             onClick={() => onSignUp(this.props.mnemonic, this.props.history)}
-            className="sign-up__button"
+            className="auth__button"
           >
             Зарегистрироваться
           </div>
@@ -56,6 +45,7 @@ class SignUp extends Component {
 const mapStateToProps = (state) => ({
   mnemonic: state.User.mnemonic,
   inviteId: state.User.inviteId,
+  isLoading: state.Auth.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => {
