@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import "../../sass/auth/auth.sass";
 import Menu from "../../components/Auth/Menu";
-import { getMnemonic, signUp } from "../../actions/Auth/index";
+import { getMnemonic, popupClose, signUp } from "../../actions/Auth/index";
 import { connect } from "react-redux";
 import copyToClipboard from "../../utils/copyToClipboard";
 import Loading from "../../components/Loading";
+import ErrorBlock from "../../components/ErrorBlock";
+import Popup from "../../components/Auth/Popup";
 class SignUp extends Component {
   render() {
-    const { mnemonic, onGetMnemonic, onSignUp } = this.props;
+    const {
+      mnemonic,
+      onGetMnemonic,
+      onSignUp,
+      history,
+      invite,
+      isPopup,
+      popupMsg,
+      onPopupClose,
+    } = this.props;
 
     return (
       <div className="auth">
@@ -36,11 +47,16 @@ class SignUp extends Component {
             )}
           </div>
           <div
-            onClick={() => onSignUp(this.props.mnemonic, this.props.history)}
+            onClick={() => onSignUp(mnemonic, history, invite)}
             className="auth__button"
           >
             {this.props.isLoadingSignUp ? <Loading /> : "Зарегистрироваться"}
           </div>
+          <Popup
+            isPopup={isPopup}
+            popupMsg={popupMsg}
+            popupClose={onPopupClose}
+          />
         </div>
       </div>
     );
@@ -48,10 +64,13 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  invite: state.App.invite,
   mnemonic: state.User.mnemonic,
   inviteId: state.User.inviteId,
   isLoadingGetMnemonic: state.App.isLoadingGetMnemonic,
   isLoadingSignUp: state.App.isLoadingSignUp,
+  isPopup: state.App.isPopup,
+  popupMsg: state.App.popupMsg,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -59,8 +78,11 @@ const mapDispatchToProps = (dispatch) => {
     onGetMnemonic: () => {
       dispatch(getMnemonic());
     },
-    onSignUp: (mnemonic, history) => {
-      dispatch(signUp(mnemonic, history));
+    onSignUp: (mnemonic, history, invite) => {
+      dispatch(signUp(mnemonic, history, invite));
+    },
+    onPopupClose: () => {
+      dispatch(popupClose());
     },
   };
 };

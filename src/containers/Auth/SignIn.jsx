@@ -4,26 +4,25 @@ import Menu from "../../components/Auth/Menu";
 import { connect } from "react-redux";
 import { setInput, signIn } from "../../actions/Auth";
 import { Link } from "react-router-dom";
+import ErrorBlock from "../../components/ErrorBlock";
 
 class SignIn extends React.Component {
   render() {
-    const { inviteId, mnemonic, onSignIn } = this.props;
+    const { mnemonic, onSignIn, onSetInput, isError, errorMsg } = this.props;
     return (
       <div className="auth">
         <Menu type={true} />
         <div className="auth__text-area">
           <h3>Войдите в систему</h3>
           <input
-            onChange={(event) =>
-              this.props.onSetInput({ mnemonic: event.target.value })
-            }
+            onChange={(event) => onSetInput({ mnemonic: event.target.value })}
             className="auth__input"
-            value={this.props.mnemonic}
+            value={mnemonic}
             placeholder="Мнемоническая фраза"
           />
-
+          <ErrorBlock isError={isError} errorMsg={errorMsg} />
           <div
-            onClick={() => onSignIn(this.props.mnemonic, this.props.history)}
+            onClick={() => onSignIn(mnemonic, this.props.history)}
             className="auth__button"
           >
             Войти &#10230;
@@ -38,6 +37,8 @@ class SignIn extends React.Component {
 const mapStateToProps = (state) => ({
   mnemonic: state.User.mnemonic,
   inviteId: state.User.inviteId,
+  isError: state.App.isError,
+  errorMsg: state.App.errorMsg,
 });
 
 const mapDispatchToProps = (dispatch) => {

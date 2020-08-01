@@ -1,14 +1,28 @@
 import React from "react";
 import "../../sass/personalArea/balance.sass";
 import refreshLogo from "../../images/PersonalArea/Refresh.png";
+
+const getCurrency = (currency_prices, currencyName) => {
+  console.log("curremc", currency_prices);
+  if (currency_prices) {
+    const currency = currency_prices.find(
+      (price) => price.currency === currencyName
+    );
+    if (currency) {
+      return currency.price;
+    }
+  }
+  return "0";
+};
+
 const Balance = ({
   wallets,
   currentWallet,
   setCurrentWallet,
   onGetWallets,
+  currency_prices,
 }) => {
-  console.log("wallets");
-  console.log(wallets);
+  console.log("currency_prices", currency_prices);
   return (
     <div className="balance">
       <div className="balance__top-block">
@@ -30,7 +44,9 @@ const Balance = ({
           <p className="balance__naming">Минут</p>
         </div>
         <div>
-          <p className="balance__current-rate">0.93</p>
+          <p className="balance__current-rate">
+            {getCurrency(currency_prices, wallets[currentWallet].currency)}
+          </p>
           <p className="balance__dash__green">&mdash;</p>
           <p className="balance__naming"> Текущий курс</p>
         </div>

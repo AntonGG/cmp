@@ -1,7 +1,7 @@
 import React from "react";
 import "../../sass/personalArea/lastСompletedTasks.sass";
 import timeLogo from "../../images/PersonalArea/time.png";
-const LastCompletedTasks = ({ lastCompletedTasks }) => {
+const LastCompletedTasks = ({ last_tasks }) => {
   return (
     <div className="last-completed-tasks">
       <div className="last-completed-tasks__menu">
@@ -13,28 +13,29 @@ const LastCompletedTasks = ({ lastCompletedTasks }) => {
         </button>
       </div>
       <div>
-        {lastCompletedTasks.map((v, i) => (
-          <div
-            className={
-              i % 2 === 0
-                ? "last-completed-tasks__table-row"
-                : "last-completed-tasks__table-row__active"
-            }
-          >
-            <div className="last-completed-tasks__logo-div">
-              <img
-                className="last-completed-tasks__logo"
-                src={timeLogo}
-                alt="Logo"
-              />
+        {last_tasks &&
+          last_tasks.map((v, i) => (
+            <div
+              className={
+                i % 2 === 0
+                  ? "last-completed-tasks__table-row"
+                  : "last-completed-tasks__table-row__active"
+              }
+            >
+              <div className="last-completed-tasks__logo-div">
+                <img
+                  className="last-completed-tasks__logo"
+                  src={timeLogo}
+                  alt="Logo"
+                />
+              </div>
+              <div className="last-completed-tasks__row-title">
+                <p className="last-completed-tasks__name">{v.name}</p>
+                <p>{v.type}</p>
+              </div>
+              <div className="last-completed-tasks__row-time">{v.reward}</div>
             </div>
-            <div className="last-completed-tasks__row-title">
-              <p className="last-completed-tasks__name">{v.name}</p>
-              <p>{v.type}</p>
-            </div>
-            <div className="last-completed-tasks__row-time">{v.time}</div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

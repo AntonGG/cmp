@@ -1,11 +1,13 @@
 const initialState = {
   mnemonic: "",
   inviteId: "0",
-  partnerUrl: "",
+  inviterlink: "",
   inviters: 0,
   invitedBy: 0,
   wallets: [{ currency: "BTC", address: "", balance: "0" }],
   currentWallet: 0, //index
+  payment_history: [],
+  currency_prices: [],
   lastCompletedTasks: [
     {
       name: "Webtoken Profit",

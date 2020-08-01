@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Balance from "../../components/PersonalArea/Balance";
-import PayoutHistory from "../../components/PayoutHistory";
+import PaymentHistory from "../../components/PaymentHistory";
 import "../../sass/personalArea/personalArea.sass";
 import Partners from "../../components/PersonalArea/Partners";
 import LastCompletedTasks from "../../components/PersonalArea/LastCompletedTasks";
@@ -26,22 +26,21 @@ class PersonalArea extends Component {
               currentWallet={this.props.currentWallet}
               setCurrentWallet={this.props.onSetCurrentWallet}
               onGetWallets={this.props.onGetWalletsAndPartners}
+              currency_prices={this.props.currency_prices}
             />
             <CashIn
               wallets={this.props.wallets}
               currentWallet={this.props.currentWallet}
             />
             <CashOut />
-            <PayoutHistory />
+            <PaymentHistory payment_history={this.props.payment_history} />
           </div>
           <div>
             <Partners
               wallet={this.props.wallets.find((v) => v.currency === "CMP")}
               inviters={this.props.inviters}
             />
-            <LastCompletedTasks
-              lastCompletedTasks={this.props.lastCompletedTasks}
-            />
+            <LastCompletedTasks last_tasks={this.props.last_tasks} />
           </div>
         </div>
       </div>
@@ -53,7 +52,9 @@ const mapStateToProps = (state) => ({
   inviters: state.User.inviters,
   wallets: state.User.wallets,
   currentWallet: state.User.currentWallet,
-  lastCompletedTasks: state.User.lastCompletedTasks,
+  last_tasks: state.User.last_tasks,
+  payment_history: state.User.payment_history,
+  currency_prices: state.User.currency_prices,
 });
 
 const mapDispatchToProps = (dispatch) => {

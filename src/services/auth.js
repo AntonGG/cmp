@@ -27,18 +27,23 @@ export const signIn = async (mnemonic) => {
     localStorage.setItem("token", json.token);
     return json;
   } else {
-    return false;
+    return json;
   }
 };
 
-export const signUp = async (mnemonic) => {
+export const signUp = async (mnemonic, invite) => {
+  let body = JSON.stringify({ mnemonic });
+  if (invite) {
+    body = JSON.stringify({ mnemonic, inveterid: invite });
+  }
+
   const resp = await fetch(`${config.url}/users/`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify({ mnemonic }),
+    body,
   });
   const json = await resp.json();
   if (json.status === "user was saved" && json.token) {

@@ -6,8 +6,9 @@ import MenuPersonalArea from "../../components/MenuPersonalArea";
 import Balance from "../../components/PersonalArea/Balance";
 import ListedUsers from "../../components/PartnerCabinet/ListedUsers";
 import PartnerUrl from "../../components/PartnerCabinet/PartnerUrl";
-import PayoutHistory from "../../components/PayoutHistory";
+
 import "../../sass/partnerCabinet/partnerCabinet.sass";
+import PaymentHistory from "../../components/PaymentHistory";
 export class PartnerCabinet extends Component {
   render() {
     return (
@@ -16,7 +17,7 @@ export class PartnerCabinet extends Component {
         <MenuPersonalArea type={false} />
         <div className="partner-cabinet-area__body">
           <div className="partner-cabinet__left-block">
-            <PartnerUrl partnerUrl={this.props.partnerUrl} />
+            <PartnerUrl inviterlink={this.props.inviterlink} />
             <ListedUsers />
           </div>
           <div className="partner-cabinet__right-block">
@@ -27,7 +28,7 @@ export class PartnerCabinet extends Component {
               onGetWallets={this.props.onGetWalletsAndPartners}
             />
             <CashOut />
-            <PayoutHistory />
+            <PaymentHistory payment_history={this.props.payment_history} />
           </div>
         </div>
       </div>
@@ -40,7 +41,8 @@ const mapStateToProps = (state) => ({
   wallets: state.User.wallets,
   currentWallet: state.User.currentWallet,
   lastCompletedTasks: state.User.lastCompletedTasks,
-  partnerUrl: state.User.partnerUrl,
+  inviterlink: state.User.inviterlink,
+  payment_history: state.User.payment_history,
 });
 
 const mapDispatchToProps = (dispatch) => {

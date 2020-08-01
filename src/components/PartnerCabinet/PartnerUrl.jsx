@@ -1,7 +1,7 @@
 import React from "react";
 import "../../sass/partnerCabinet/partnerUrl.sass";
 
-const PartnerUrl = ({ partnerUrl }) => {
+const PartnerUrl = ({ inviterlink }) => {
   return (
     <div className="partner-url">
       <p>Ваша партнерская ссылка</p>
@@ -9,7 +9,7 @@ const PartnerUrl = ({ partnerUrl }) => {
         <input
           className="partner-url__input"
           readOnly="readOnly"
-          value={partnerUrl}
+          value={inviterlink}
         />
         <div className="partner-url__copy-button">
           <svg

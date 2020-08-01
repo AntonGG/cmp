@@ -6,6 +6,7 @@ import PersonalArea from "./containers/PersonalArea/PersonalArea";
 import NotFound from "./components/NotFound/NotFound";
 import PartnerCabinet from "./containers/PartnerCabinet/PartnerCabinet";
 import TaskFeed from "./containers/TaskFeed/TaskFeed";
+import Inviter from "./containers/Inviter";
 
 // генерирует Route компонент
 const CreateRoute = (route) => {
@@ -31,12 +32,30 @@ export function RenderRoutes({ routes }) {
 
 const ROUTES = [
   {
+    path: "/:invite",
+    key: "ROOT_INVITE",
+    exact: true,
+    component: Inviter,
+  },
+  {
     path: "/",
     key: "ROOT_1",
     exact: true,
     component: () => <Redirect to={"/auth/signIn"} />,
   },
   { path: "/home", key: "ROOT", exact: true, component: () => <h1>HOME</h1> },
+  // {
+  //   path: "/inv",
+  //   key: "INV",
+  //   component: RenderRoutes,
+  //   routes: [
+  //     {
+  //       path: "/inv/:invite",
+  //       key: "INV_INVITE",
+  //       component: Inviter,
+  //     },
+  //   ],
+  // },
   {
     path: "/auth",
     key: "AUTH",
