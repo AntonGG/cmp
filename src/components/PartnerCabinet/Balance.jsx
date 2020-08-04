@@ -16,11 +16,12 @@ const Balance = () => {
         </div>
       </div>
       <div className="balance__bottom-block">
-        <div>
+        {/* <div>
           <p className="balance__minutes">1027</p>
           <p className="balance__dash__green">&mdash;</p>
           <p className="balance__naming">Минут</p>
-        </div>
+        </div> */}
+        
         <div>
           <p className="balance__current-rate">0.93</p>
           <p className="balance__dash__green">&mdash;</p>

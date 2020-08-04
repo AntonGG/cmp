@@ -23,6 +23,8 @@ const Balance = ({
   currency_prices,
 }) => {
   console.log("currency_prices", currency_prices);
+  const cmpWallet = wallets.find((v) => v.currency === "CMP");
+
   return (
     <div className="balance">
       <div className="balance__top-block">
@@ -39,9 +41,11 @@ const Balance = ({
       </div>
       <div className="balance__bottom-block">
         <div>
-          <p className="balance__minutes">1027</p>
+          <p className="balance__minutes">
+            {cmpWallet ? cmpWallet.balance : 0}
+          </p>
           <p className="balance__dash__green">&mdash;</p>
-          <p className="balance__naming">Минут</p>
+          <p className="balance__naming">Баланс CMP</p>
         </div>
         <div>
           <p className="balance__current-rate">
@@ -60,7 +64,7 @@ const Balance = ({
             />
             <p className="balance__count">
               {wallets.length > 0 ? wallets[currentWallet].balance : "0"}
-              <span className="dollar">/$</span>
+              <span className="dollar">/{wallets[currentWallet].currency}</span>
             </p>
           </div>
           <p className="balance__dash__orange">&mdash;</p>
