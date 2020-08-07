@@ -8,39 +8,54 @@ import MenuPersonalArea from "../../components/MenuPersonalArea";
 import CashOut from "../../components/CashOut";
 import CashIn from "../../components/CashIn";
 import { connect } from "react-redux";
-import { getWalletsAndPartners, setCurrentWallet } from "../../actions/User";
+import {
+  convertCrypto,
+  getWalletsAndPartners,
+  setCurrentWallet,
+} from "../../actions/User";
+import BalanceTable from "../../components/PersonalArea/BalanceTable";
+import Rate from "../../components/PersonalArea/Rate";
 
 class PersonalArea extends Component {
   componentDidMount() {
     this.props.onGetWalletsAndPartners();
   }
   render() {
+    const {
+      wallets,
+      currentWallet,
+      onSetCurrentWallet,
+      onGetWalletsAndPartners,
+      currency_prices,
+      onConvertCrypto,
+      payment_history,
+      inviters,
+      last_tasks,
+    } = this.props;
     return (
       <div className="personal-area">
         <p className="title">Личный кабинет</p>
         <MenuPersonalArea type={true} />
         <div className="personal-area__body">
           <div>
-            <Balance
-              wallets={this.props.wallets}
-              currentWallet={this.props.currentWallet}
-              setCurrentWallet={this.props.onSetCurrentWallet}
-              onGetWallets={this.props.onGetWalletsAndPartners}
-              currency_prices={this.props.currency_prices}
-            />
-            <CashIn
-              wallets={this.props.wallets}
-              currentWallet={this.props.currentWallet}
+            <BalanceTable
+              wallets={wallets}
+              currentWallet={currentWallet}
+              setCurrentWallet={onSetCurrentWallet}
+              onGetWallets={onGetWalletsAndPartners}
+              currency_prices={currency_prices}
+              convertCrypto={onConvertCrypto}
             />
             <CashOut />
-            <PaymentHistory payment_history={this.props.payment_history} />
+            <PaymentHistory payment_history={payment_history} />
           </div>
           <div>
             <Partners
-              wallet={this.props.wallets.find((v) => v.currency === "CMP")}
-              inviters={this.props.inviters}
+              wallet={wallets.find((v) => v.currency === "CMP")}
+              inviters={inviters}
             />
-            <LastCompletedTasks last_tasks={this.props.last_tasks} />
+            <LastCompletedTasks last_tasks={last_tasks} />
+            <Rate currency_prices={currency_prices} />
           </div>
         </div>
       </div>
@@ -65,6 +80,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onSetCurrentWallet: (currentWallet) => {
       dispatch(setCurrentWallet(currentWallet));
+    },
+    onConvertCrypto: (coin_code) => {
+      dispatch(convertCrypto(coin_code));
     },
   };
 };

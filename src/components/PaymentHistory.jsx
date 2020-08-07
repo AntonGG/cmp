@@ -25,8 +25,8 @@ const PaymentHistory = ({ payment_history }) => {
       </div>
       <div className="payment-history__table">
         {payment_history &&
-          payment_history.map((payment) => (
-            <div className="payment-history__item">
+          payment_history.map((payment, i) => (
+            <div key={i} className="payment-history__item">
               <div className="payment-history__first-div">
                 <p>{dateFormat(payment.date, "HH:MM")}</p>
                 <p>{dateFormat(payment.date, "dd.mm.yyyy")}</p>

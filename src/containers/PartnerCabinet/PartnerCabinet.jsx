@@ -10,6 +10,9 @@ import PartnerUrl from "../../components/PartnerCabinet/PartnerUrl";
 import "../../sass/partnerCabinet/partnerCabinet.sass";
 import PaymentHistory from "../../components/PaymentHistory";
 export class PartnerCabinet extends Component {
+  componentDidMount() {
+    this.props.onGetWalletsAndPartners();
+  }
   render() {
     return (
       <div className="partner-cabinet-area">

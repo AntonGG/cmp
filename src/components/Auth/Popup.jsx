@@ -1,6 +1,7 @@
 import React from "react";
 import "../../sass/auth/popup.sass";
-const Popup = ({ isPopup, popupMsg, popupClose }) => {
+
+const Popup = ({ isPopup, popupClose }) => {
   return (
     isPopup && (
       <div className="popup">

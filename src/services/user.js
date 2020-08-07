@@ -18,3 +18,24 @@ export const getWallets = async () => {
     return false;
   }
 };
+export const convertCrypto = async (coin_code) => {
+  const resp = await fetch(`${config.url}/users/convert_crypto/`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      token: localStorage.getItem("token"),
+      coin_code,
+      amount: 1,
+    }),
+  });
+  const json = await resp.json();
+  if (json) {
+    console.log(json);
+    return json;
+  } else {
+    return false;
+  }
+};
