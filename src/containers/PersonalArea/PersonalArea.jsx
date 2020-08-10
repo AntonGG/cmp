@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import Balance from "../../components/PersonalArea/Balance";
 import PaymentHistory from "../../components/PaymentHistory";
 import "../../sass/personalArea/personalArea.sass";
 import Partners from "../../components/PersonalArea/Partners";
 import LastCompletedTasks from "../../components/PersonalArea/LastCompletedTasks";
 import MenuPersonalArea from "../../components/MenuPersonalArea";
-import CashOut from "../../components/CashOut";
-import CashIn from "../../components/CashIn";
 import { connect } from "react-redux";
 import {
   convertCrypto,
@@ -46,7 +43,6 @@ class PersonalArea extends Component {
               currency_prices={currency_prices}
               convertCrypto={onConvertCrypto}
             />
-            <CashOut />
             <PaymentHistory payment_history={payment_history} />
           </div>
           <div>
@@ -55,7 +51,10 @@ class PersonalArea extends Component {
               inviters={inviters}
             />
             <LastCompletedTasks last_tasks={last_tasks} />
-            <Rate currency_prices={currency_prices} />
+            <Rate
+              currency_prices={currency_prices}
+              cmpWallet={wallets.find((v) => v.currency === "CMP")}
+            />
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ const PaymentHistory = ({ payment_history }) => {
   return (
     <div className="payment-history">
       <div className="payment-history__menu">
-        <p className="payment-history__title">История платежей</p>
+        <p className="payment-history__title">История транзакций</p>
         <button className="payment-history__download-button">
           Скачать отчет
         </button>

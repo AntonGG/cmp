@@ -8,7 +8,7 @@ const Partners = ({ inviters, wallet }) => {
       <div className="partners__count">
         <img className="partners__logo" src={invitersLogo} alt="Logo" />
         <span className="partners__sum">{inviters}</span>
-        <span className="partners__you-brought">Приведено партнеров</span>
+        <span className="partners__you-brought">Количество партнеров</span>
       </div>
       {/* <div className="partners__balance-cmp">
         <span className="partners__balance-cmp__info">
