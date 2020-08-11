@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import "../../sass/cashOutPopup.sass";
-import copyToClipboard from "../../utils/copyToClipboard";
 
-const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
+const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse, withdrawCmp }) => {
+  const [address, setAddress] = useState("");
+  const [amount, setAmount] = useState(0.01);
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) {
+        setIsPopupFalse();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, []);
+
   if (!isPopup) {
     return "";
   }
@@ -14,7 +29,7 @@ const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
           <p>Вывод CMP</p>
 
           <div onClick={() => setIsPopupFalse()}>
-            <div class="cl-btn-7"></div>
+            <div className="cl-btn-7"></div>
           </div>
         </div>
         <div className="cash-out-popup__table">
@@ -29,17 +44,31 @@ const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
           <div className="cash-out-popup__item">
             <p>Сумма вывода</p>
             <input
+              onChange={(event) => setAmount(event.target.value)}
+              value={amount}
               className="cash-out-popup__input"
               placeholder="Введите сумму"
+              type="number"
+              step="0.01"
             />
           </div>
           <div className="cash-out-popup__item">
             <p>Адрес получателя CMP</p>
-            <input className="cash-out-popup__input" placeholder="Ваш адрес" />
+            <input
+              onChange={(event) => setAddress(event.target.value)}
+              value={address}
+              className="cash-out-popup__input"
+              placeholder="Ваш адрес"
+            />
           </div>
         </div>
         <div className="cash-out-popup__item-button">
-          <div className="cash-out-popup__button">
+          <div
+            onClick={() => {
+              withdrawCmp(address, amount);
+            }}
+            className="cash-out-popup__button"
+          >
             <p>Вывести</p>
           </div>
         </div>

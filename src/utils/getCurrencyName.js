@@ -8,7 +8,7 @@ const getCurrencyFullName = (currencyName) => {
     case "ERC20":
       return "USDT";
     case "USDT":
-      return "USDT (ERC20)";
+      return "Tether ERC20 (USDT)";
     case "BNB":
       return "Binance coin";
     default:

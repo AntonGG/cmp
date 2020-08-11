@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../sass/cashInPopup.sass";
 import copyToClipboard from "../../utils/copyToClipboard";
 
 const CashInPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) {
+        setIsPopupFalse();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, []);
+
   if (!isPopup) {
     return "";
   }
@@ -14,11 +27,14 @@ const CashInPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
           <p>Пополнить {wallet.currency}</p>
 
           <div onClick={() => setIsPopupFalse()}>
-            <div class="cl-btn-7"></div>
+            <div className="cl-btn-7"></div>
           </div>
         </div>
         <div className="cash-in-popup__input">
-          <input placeholder="Ваш адрес" value={wallet ? wallet.address : ""} />
+          <input
+            placeholder="Ваш адрес"
+            defaultValue={wallet ? wallet.address : ""}
+          />
           <div
             onClick={() => copyToClipboard(wallet ? wallet.address : "")}
             className="cash-in-popup__copy-button"

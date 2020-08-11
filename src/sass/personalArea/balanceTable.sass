@@ -50,6 +50,7 @@
 
 .balance-table__title-row
     display: flex
+    justify-content: flex-end
     margin-bottom: 10px
     margin-top: 10px
     p
@@ -61,12 +62,12 @@
 .balance-table__cmp-buttons
     margin-bottom: 10px
 .balance-table__cash-button
-    &__green
+    &__white
         margin: 5px
-        +button(#00ff0d)
-    &__blue
+        +button(#ffffff)
+    &__gray
         margin: 5px
-        +button(#0015ff, #ffffff)
+        +button(#545458, #ffffff)
 
 .balance-table__cmp-buttons
     margin-top: 10px
@@ -91,7 +92,7 @@
     border-radius: 10px
 
 .balance-table__item-row-first
-    width: 500px
+    width: 530px
 .balance-table__item-row-middle
     width: 230px
 .balance-table__item-row-last
@@ -144,8 +145,8 @@
         background-color: #d2d2d2
     &:active
         transform: translateY(2px)
-.balance-table-buy-button
 
+.balance-table-buy-button
     cursor: pointer
     height: 40px
     width: 130px
@@ -163,3 +164,6 @@
         background-color: #d2d2d2
     &:active
         transform: translateY(2px)
+
+.balance-table__cash-in-button
+    +button(#8085bf, #ffffff)

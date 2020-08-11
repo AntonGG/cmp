@@ -1,6 +1,6 @@
 import React from "react";
 import "../../sass/personalArea/balance.sass";
-import refreshLogo from "../../images/PersonalArea/Refresh.png";
+import refreshLogo from "../../images/PersonalArea/refresh.png";
 
 const getCurrency = (currency_prices, currencyName) => {
   console.log("curremc", currency_prices);

@@ -39,3 +39,26 @@ export const convertCrypto = async (coin_code) => {
     return false;
   }
 };
+
+//для вывода CMP
+export const withdrawCmp = async (address, amount) => {
+  const resp = await fetch(`${config.url}/users/withdraw_cmp/`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      token: localStorage.getItem("token"),
+      address,
+      amount,
+    }),
+  });
+  const json = await resp.json();
+  if (json) {
+    console.log(json);
+    return json;
+  } else {
+    return false;
+  }
+};

@@ -9,6 +9,7 @@ import {
   convertCrypto,
   getWalletsAndPartners,
   setCurrentWallet,
+  withdrawCmp,
 } from "../../actions/User";
 import BalanceTable from "../../components/PersonalArea/BalanceTable";
 import Rate from "../../components/PersonalArea/Rate";
@@ -28,6 +29,7 @@ class PersonalArea extends Component {
       payment_history,
       inviters,
       last_tasks,
+      onWithdrawCmp,
     } = this.props;
     return (
       <div className="personal-area">
@@ -42,6 +44,7 @@ class PersonalArea extends Component {
               onGetWallets={onGetWalletsAndPartners}
               currency_prices={currency_prices}
               convertCrypto={onConvertCrypto}
+              withdrawCmp={onWithdrawCmp}
             />
             <PaymentHistory payment_history={payment_history} />
           </div>
@@ -82,6 +85,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onConvertCrypto: (coin_code) => {
       dispatch(convertCrypto(coin_code));
+    },
+    onWithdrawCmp: (address, amount) => {
+      dispatch(withdrawCmp(address, amount));
     },
   };
 };

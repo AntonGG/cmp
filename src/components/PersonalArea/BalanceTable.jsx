@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import "../../sass/personalArea/balanceTable.sass";
-import copyToClipboard from "../../utils/copyToClipboard";
-import refreshLogo from "../../images/PersonalArea/Refresh.png";
+
+import refreshLogo from "../../images/PersonalArea/refresh.png";
 import getCurrencyFullName from "../../utils/getCurrencyName";
 import CashInPopup from "./CashInPopup";
 import CashOutPopup from "./CashOutPopup";
 
-const getCurrency = (currency_prices, currencyName, convertCrypto) => {
-  console.log("curremc", currency_prices);
-  if (currency_prices) {
-    const currency = currency_prices.find(
-      (price) => price.currency === currencyName
-    );
-    if (currency) {
-      return currency.price;
-    }
-  }
-  return "0";
-};
+// const getCurrency = (currency_prices, currencyName, convertCrypto) => {
+//   console.log("curremc", currency_prices);
+//   if (currency_prices) {
+//     const currency = currency_prices.find(
+//       (price) => price.currency === currencyName
+//     );
+//     if (currency) {
+//       return currency.price;
+//     }
+//   }
+//   return "0";
+// };
 
 const getCmp = (wallets) => wallets.find((wallet) => wallet.currency === "CMP");
 
@@ -28,6 +28,7 @@ const BalanceTable = ({
   onGetWallets,
   currency_prices,
   convertCrypto,
+  withdrawCmp
 }) => {
   console.log("currency_prices", currency_prices);
   const cmp = getCmp(wallets);
@@ -49,6 +50,7 @@ const BalanceTable = ({
         wallet={currentWalletPopup}
         isPopup={isCashOutPopup}
         setIsPopupFalse={onSetIsCashOutPopup}
+        withdrawCmp={withdrawCmp}
       />
       <div className="balance-table__title">
         <div className="balance-table__bottom-block">
@@ -63,26 +65,24 @@ const BalanceTable = ({
               <p className="balance__count">{cmp ? cmp.balance : "0"}</p>
             </div>
             <p className="balance__dash__orange">&mdash;</p>
-            <p className="balance__naming">Ваш баланс</p>
+            <p className="balance__naming">Ваш баланс CMP</p>
           </div>
           <div className="balance-table__cmp-buttons">
             <div
               onClick={() => {
                 setIsCashOutPopup(true);
-                setIsCashInPopup(false);
                 setCurrentWalletPopup(cmp);
               }}
-              className="balance-table__cash-button__green"
+              className="balance-table__cash-button__white"
             >
               <p>Вывести</p>
             </div>
             <div
               onClick={() => {
                 setIsCashInPopup(true);
-                setIsCashOutPopup(false);
                 setCurrentWalletPopup(cmp);
               }}
-              className="balance-table__cash-button__blue"
+              className="balance-table__cash-button__gray"
             >
               <p>Пополнить</p>
             </div>
@@ -99,13 +99,13 @@ const BalanceTable = ({
                     <div className="balance-table__item-row-first">
                       <p>
                         <span className="font__bold">
-                          {getCurrencyFullName(wallet.currency)}{" "}
-                          {wallet.currency}
+                          {getCurrencyFullName(wallet.currency)} (
+                          {wallet.currency})
                         </span>{" "}
                         {wallet.balance}
                         <span className="font__bold"> &asymp; </span>
                         {cmp ? cmp.balance : "0"}{" "}
-                        <span className="font__bold">CMP</span>
+                        <span className="font__bold">(CMP)</span>
                       </p>
                     </div>
                     <div className="balance-table__item-row-last">
@@ -120,19 +120,14 @@ const BalanceTable = ({
                     </div>
                   </div>
                   <div className="balance-table__title-row">
-                    <div className="balance-table-cash-in__input">
-                      <input
-                        placeholder="Ваш адрес"
-                        value={wallet.address ? wallet.address : ""}
-                      />
-                      <div
-                        onClick={() =>
-                          copyToClipboard(wallet.address ? wallet.address : "")
-                        }
-                        className="balance-table-cash-in__copy-button"
-                      >
-                        <p>Копировать</p>
-                      </div>
+                    <div
+                      onClick={() => {
+                        setIsCashInPopup(true);
+                        setCurrentWalletPopup(wallet);
+                      }}
+                      className="balance-table__cash-in-button"
+                    >
+                      <p>Пополнить</p>
                     </div>
                   </div>
                 </div>
