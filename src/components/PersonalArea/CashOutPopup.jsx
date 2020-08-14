@@ -1,10 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "../../sass/cashOutPopup.sass";
+import StatusPopup from "../StatusPopup";
 
-const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse, withdrawCmp }) => {
+const CashOutPopup = ({
+  wallet,
+  isCashOutPopup,
+  setIsPopupFalse,
+  withdrawCmp,
+}) => {
   const [address, setAddress] = useState("");
   const [amount, setAmount] = useState(0.01);
+
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.keyCode === 27) {
@@ -18,7 +25,7 @@ const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse, withdrawCmp }) => {
     };
   }, []);
 
-  if (!isPopup) {
+  if (!isCashOutPopup) {
     return "";
   }
 
@@ -64,9 +71,7 @@ const CashOutPopup = ({ wallet, isPopup, setIsPopupFalse, withdrawCmp }) => {
         </div>
         <div className="cash-out-popup__item-button">
           <div
-            onClick={() => {
-              withdrawCmp(address, amount);
-            }}
+            onClick={() => withdrawCmp(address, amount)}
             className="cash-out-popup__button"
           >
             <p>Вывести</p>

@@ -6,15 +6,15 @@ const initialState = {
   isLoadingSignUp: false,
   isLoadingSignIn: false,
   isError: false,
-  errorMsg: null,
   isPopup: false,
+  errorMsg: null,
   popupMsg: null,
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_INVITE":
-      return { ...state, invite: payload };
+      return {...state, invite: payload };
     case "START_LOADING":
       return { ...state, isLoading: true };
     case "FINISH_LOADING":

@@ -6,11 +6,9 @@ const paymentStatusSwitch = (status) => {
   switch (status) {
     case "WALLET_CREATED":
       return "Кошелек создан";
-      break;
 
     default:
       return "";
-      break;
   }
 };
 
@@ -24,6 +22,7 @@ const PaymentHistory = ({ payment_history }) => {
         </button>
       </div>
       <div className="payment-history__table">
+        
         {payment_history &&
           payment_history.map((payment, i) => (
             <div key={i} className="payment-history__item">

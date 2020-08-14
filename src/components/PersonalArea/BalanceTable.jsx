@@ -6,18 +6,18 @@ import getCurrencyFullName from "../../utils/getCurrencyName";
 import CashInPopup from "./CashInPopup";
 import CashOutPopup from "./CashOutPopup";
 
-// const getCurrency = (currency_prices, currencyName, convertCrypto) => {
-//   console.log("curremc", currency_prices);
-//   if (currency_prices) {
-//     const currency = currency_prices.find(
-//       (price) => price.currency === currencyName
-//     );
-//     if (currency) {
-//       return currency.price;
-//     }
-//   }
-//   return "0";
-// };
+const getCurrencyPrice = (currency_prices, currencyName) => {
+  console.log("getCurrencyPrice", currency_prices, currencyName);
+  if (currency_prices) {
+    const currency = currency_prices.find(
+      (price) => price.currency.indexOf(currencyName) > -1
+    );
+    if (currency) {
+      return currency.price;
+    }
+  }
+  return "0";
+};
 
 const getCmp = (wallets) => wallets.find((wallet) => wallet.currency === "CMP");
 
@@ -28,9 +28,12 @@ const BalanceTable = ({
   onGetWallets,
   currency_prices,
   convertCrypto,
-  withdrawCmp
+  withdrawCmp,
+  isPopup,
+  isError,
+  popupMessage,
+  popupClose,
 }) => {
-  console.log("currency_prices", currency_prices);
   const cmp = getCmp(wallets);
   const [isCashInPopup, setIsCashInPopup] = useState(false);
   const [currentWalletPopup, setCurrentWalletPopup] = useState({});
@@ -48,9 +51,13 @@ const BalanceTable = ({
       />
       <CashOutPopup
         wallet={currentWalletPopup}
-        isPopup={isCashOutPopup}
-        setIsPopupFalse={onSetIsCashOutPopup}
+        isPopup={isPopup}
         withdrawCmp={withdrawCmp}
+        setIsPopupFalse={onSetIsCashOutPopup}
+        isCashOutPopup={isCashOutPopup}
+        isError={isError}
+        popupClose={popupClose}
+        popupMessage={popupMessage}
       />
       <div className="balance-table__title">
         <div className="balance-table__bottom-block">
@@ -104,8 +111,8 @@ const BalanceTable = ({
                         </span>{" "}
                         {wallet.balance}
                         <span className="font__bold"> &asymp; </span>
-                        {cmp ? cmp.balance : "0"}{" "}
-                        <span className="font__bold">(CMP)</span>
+                        {wallet.cmp}
+                        <span className="font__bold"> (CMP)</span>
                       </p>
                     </div>
                     <div className="balance-table__item-row-last">

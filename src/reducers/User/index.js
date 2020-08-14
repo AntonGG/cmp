@@ -1,4 +1,7 @@
 const initialState = {
+  isError: false,
+  isPopup: false,
+  popupMessage: "",
   mnemonic: "",
   inviteId: "0",
   inviterlink: "",

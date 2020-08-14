@@ -8,14 +8,19 @@ import { connect } from "react-redux";
 import {
   convertCrypto,
   getWalletsAndPartners,
+  popupClose,
   setCurrentWallet,
+  setPreloader,
   withdrawCmp,
 } from "../../actions/User";
 import BalanceTable from "../../components/PersonalArea/BalanceTable";
 import Rate from "../../components/PersonalArea/Rate";
+import StatusPopup from "../../components/StatusPopup";
+import Preloader from "../../components/Preloader";
 
 class PersonalArea extends Component {
   componentDidMount() {
+    this.props.onSetPreloader(true);
     this.props.onGetWalletsAndPartners();
   }
   render() {
@@ -30,36 +35,57 @@ class PersonalArea extends Component {
       inviters,
       last_tasks,
       onWithdrawCmp,
+      isError,
+      isPopup,
+      popupMessage,
+      onPopupClose,
+      isPreloader,
     } = this.props;
+
     return (
       <div className="personal-area">
         <p className="title">Личный кабинет</p>
         <MenuPersonalArea type={true} />
-        <div className="personal-area__body">
-          <div>
-            <BalanceTable
-              wallets={wallets}
-              currentWallet={currentWallet}
-              setCurrentWallet={onSetCurrentWallet}
-              onGetWallets={onGetWalletsAndPartners}
-              currency_prices={currency_prices}
-              convertCrypto={onConvertCrypto}
-              withdrawCmp={onWithdrawCmp}
-            />
-            <PaymentHistory payment_history={payment_history} />
+
+        {isPreloader ? (
+          <Preloader />
+        ) : (
+          <div className="personal-area__body">
+            <div>
+              <BalanceTable
+                wallets={wallets}
+                currentWallet={currentWallet}
+                setCurrentWallet={onSetCurrentWallet}
+                onGetWallets={onGetWalletsAndPartners}
+                currency_prices={currency_prices}
+                convertCrypto={onConvertCrypto}
+                withdrawCmp={onWithdrawCmp}
+                isError={isError}
+                isPopup={isPopup}
+                popupMessage={popupMessage}
+                popupClose={onPopupClose}
+              />
+              <PaymentHistory payment_history={payment_history} />
+            </div>
+            <div>
+              <Partners
+                wallet={wallets.find((v) => v.currency === "CMP")}
+                inviters={inviters}
+              />
+              <LastCompletedTasks last_tasks={last_tasks} />
+              <Rate
+                currency_prices={currency_prices}
+                cmpWallet={wallets.find((v) => v.currency === "CMP")}
+              />
+            </div>
           </div>
-          <div>
-            <Partners
-              wallet={wallets.find((v) => v.currency === "CMP")}
-              inviters={inviters}
-            />
-            <LastCompletedTasks last_tasks={last_tasks} />
-            <Rate
-              currency_prices={currency_prices}
-              cmpWallet={wallets.find((v) => v.currency === "CMP")}
-            />
-          </div>
-        </div>
+        )}
+        <StatusPopup
+          isPopup={isPopup}
+          popupClose={onPopupClose}
+          isError={isError}
+          statusMsg={popupMessage}
+        />
       </div>
     );
   }
@@ -72,6 +98,10 @@ const mapStateToProps = (state) => ({
   last_tasks: state.User.last_tasks,
   payment_history: state.User.payment_history,
   currency_prices: state.User.currency_prices,
+  isError: state.User.isError,
+  isPopup: state.User.isPopup,
+  popupMessage: state.User.popupMessage,
+  isPreloader: state.User.isPreloader,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -88,6 +118,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     onWithdrawCmp: (address, amount) => {
       dispatch(withdrawCmp(address, amount));
+    },
+    onPopupClose: () => {
+      dispatch(popupClose());
+    },
+    onSetPreloader: (isPreloader) => {
+      dispatch(setPreloader(isPreloader));
     },
   };
 };
