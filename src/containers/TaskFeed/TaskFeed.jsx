@@ -1,7 +1,7 @@
 import "../../sass/taskFeed/taskFeed.sass";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getWalletsAndPartners, setCurrentWallet } from "../../actions/User";
+import { getWallets, setCurrentWallet } from "../../actions/User";
 import MenuOffers from "../../components/TaskFeed/MenuOffers";
 import Switchers from "../../components/TaskFeed/Switchers";
 import { Slider, FormControlLabel, Checkbox } from "@material-ui/core";
@@ -85,9 +85,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetWalletsAndPartners: () => {
-      console.log("onGetWalletsAndPartners");
-      dispatch(getWalletsAndPartners());
+    onGetWallets: () => {
+      console.log("onGetWallets");
+      dispatch(getWallets());
     },
     onSetCurrentWallet: (currentWallet) => {
       dispatch(setCurrentWallet(currentWallet));

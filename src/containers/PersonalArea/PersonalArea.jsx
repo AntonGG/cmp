@@ -7,7 +7,7 @@ import MenuPersonalArea from "../../components/MenuPersonalArea";
 import { connect } from "react-redux";
 import {
   convertCrypto,
-  getWalletsAndPartners,
+  getWallets,
   popupClose,
   setCurrentWallet,
   setPreloader,
@@ -18,17 +18,18 @@ import Rate from "../../components/PersonalArea/Rate";
 import StatusPopup from "../../components/StatusPopup";
 import Preloader from "../../components/Preloader";
 
+
 class PersonalArea extends Component {
   componentDidMount() {
     this.props.onSetPreloader(true);
-    this.props.onGetWalletsAndPartners();
+    this.props.onGetWallets();
   }
   render() {
     const {
       wallets,
       currentWallet,
       onSetCurrentWallet,
-      onGetWalletsAndPartners,
+      onGetWallets,
       currency_prices,
       onConvertCrypto,
       payment_history,
@@ -56,7 +57,7 @@ class PersonalArea extends Component {
                 wallets={wallets}
                 currentWallet={currentWallet}
                 setCurrentWallet={onSetCurrentWallet}
-                onGetWallets={onGetWalletsAndPartners}
+                onGetWallets={onGetWallets}
                 currency_prices={currency_prices}
                 convertCrypto={onConvertCrypto}
                 withdrawCmp={onWithdrawCmp}
@@ -106,9 +107,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetWalletsAndPartners: () => {
-      console.log("onGetWalletsAndPartners");
-      dispatch(getWalletsAndPartners());
+    onGetWallets: () => {
+      console.log("onGetWallets");
+      dispatch(getWallets());
     },
     onSetCurrentWallet: (currentWallet) => {
       dispatch(setCurrentWallet(currentWallet));

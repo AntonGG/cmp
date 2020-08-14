@@ -26,9 +26,11 @@ const Rate = ({ currency_prices, cmpWallet }) => {
                 <p>{getCurrencyFullName(price.currency)}</p>
               </div>
               <div className="rate-table__item-right">
-                <p>
-                  1 {price.currency} = {price.price} CMP
+                <p className="rate-table__item-one-currency">
+                  1 {price.currency}
                 </p>
+                <p className="rate-table__item-symbol-equal">=</p>
+                <p className="rate-table__item-price-cmp">{price.price} CMP</p>
               </div>
             </div>
           ))}

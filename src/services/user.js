@@ -18,6 +18,25 @@ export const getWallets = async () => {
     return false;
   }
 };
+//Запрашиваем информацию о предпродаже cmp монет
+export const getIcoInfo = async () => {
+  const resp = await fetch(`${config.url}/users/ico_info/`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ token: localStorage.getItem("token") }),
+  });
+  const json = await resp.json();
+  if (json) {
+    console.log(json);
+    return json;
+  } else {
+    return false;
+  }
+};
+
 export const convertCrypto = async (coin_code) => {
   const resp = await fetch(`${config.url}/users/convert_crypto/`, {
     headers: {

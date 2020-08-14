@@ -7,6 +7,14 @@ import { Link } from "react-router-dom";
 import ErrorBlock from "../../components/ErrorBlock";
 
 class SignIn extends React.Component {
+  componentDidMount() {
+    console.log("DFFWEFFFEWFWEFEFWEFF");
+    console.log(localStorage.getItem("token"));
+    if (localStorage.getItem("token")) {
+      this.props.onSetInput({ isAuth: true });
+      this.props.history.push("/lk/balance");
+    }
+  }
   render() {
     const { mnemonic, onSignIn, onSetInput, isError, errorMsg } = this.props;
     return (

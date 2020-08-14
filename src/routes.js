@@ -7,6 +7,7 @@ import NotFound from "./components/NotFound/NotFound";
 import PartnerCabinet from "./containers/PartnerCabinet/PartnerCabinet";
 import TaskFeed from "./containers/TaskFeed/TaskFeed";
 import Inviter from "./containers/Inviter";
+import Presale from "./containers/Presale/Presale";
 
 // генерирует Route компонент
 const CreateRoute = (route) => {
@@ -101,6 +102,11 @@ const ROUTES = [
         path: "/lk/task-feed",
         key: "LK_TASK_FEED",
         component: TaskFeed,
+      },
+      {
+        path: "/lk/presale",
+        key: "LK_PRESALE",
+        component: Presale,
       },
     ],
   },

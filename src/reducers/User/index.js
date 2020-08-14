@@ -31,6 +31,8 @@ export default (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_INPUT":
       return { ...state, ...payload };
+    case "SET_MNEMONIC":
+      return { ...state, mnemonic: payload };
     case "DELETE_MNEMONIC":
       return { ...state, mnemonic: "" };
     default:

@@ -6,18 +6,18 @@ import getCurrencyFullName from "../../utils/getCurrencyName";
 import CashInPopup from "./CashInPopup";
 import CashOutPopup from "./CashOutPopup";
 
-const getCurrencyPrice = (currency_prices, currencyName) => {
-  console.log("getCurrencyPrice", currency_prices, currencyName);
-  if (currency_prices) {
-    const currency = currency_prices.find(
-      (price) => price.currency.indexOf(currencyName) > -1
-    );
-    if (currency) {
-      return currency.price;
-    }
-  }
-  return "0";
-};
+// const getCurrencyPrice = (currency_prices, currencyName) => {
+//   console.log("getCurrencyPrice", currency_prices, currencyName);
+//   if (currency_prices) {
+//     const currency = currency_prices.find(
+//       (price) => price.currency.indexOf(currencyName) > -1
+//     );
+//     if (currency) {
+//       return currency.price;
+//     }
+//   }
+//   return "0";
+// };
 
 const getCmp = (wallets) => wallets.find((wallet) => wallet.currency === "CMP");
 
@@ -104,16 +104,14 @@ const BalanceTable = ({
                 <div key={i} className="balance-table__item">
                   <div className="balance-table__item-row balance-table__item__active">
                     <div className="balance-table__item-row-first">
-                      <p>
-                        <span className="font__bold">
-                          {getCurrencyFullName(wallet.currency)} (
-                          {wallet.currency})
-                        </span>{" "}
-                        {wallet.balance}
-                        <span className="font__bold"> &asymp; </span>
-                        {wallet.cmp}
-                        <span className="font__bold"> (CMP)</span>
+                      <p className="font__bold balance-table__currency-name">
+                        {getCurrencyFullName(wallet.currency)} (
+                        {wallet.currency})
                       </p>
+                      <p className="balance-table__balance">{wallet.balance}</p>
+                      <p className="font__bold"> &asymp; </p>
+                      <p className="balance-table__balance-cmp-price">{wallet.cmp}</p>
+                      <p className="font__bold"> (CMP)</p>
                     </div>
                     <div className="balance-table__item-row-last">
                       <div

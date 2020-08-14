@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getWalletsAndPartners, setCurrentWallet } from "../../actions/User";
+import { getWallets, setCurrentWallet } from "../../actions/User";
 import CashOut from "../../components/CashOut";
 import MenuPersonalArea from "../../components/MenuPersonalArea";
 import Balance from "../../components/PersonalArea/Balance";
@@ -11,7 +11,7 @@ import "../../sass/partnerCabinet/partnerCabinet.sass";
 import PaymentHistory from "../../components/PaymentHistory";
 export class PartnerCabinet extends Component {
   componentDidMount() {
-    this.props.onGetWalletsAndPartners();
+    this.props.onGetWallets();
   }
   render() {
     return (
@@ -28,7 +28,7 @@ export class PartnerCabinet extends Component {
               wallets={this.props.wallets}
               currentWallet={this.props.currentWallet}
               setCurrentWallet={this.props.onSetCurrentWallet}
-              onGetWallets={this.props.onGetWalletsAndPartners}
+              onGetWallets={this.props.onGetWallets}
             />
             <CashOut />
             <PaymentHistory payment_history={this.props.payment_history} />
@@ -50,9 +50,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetWalletsAndPartners: () => {
-      console.log("onGetWalletsAndPartners");
-      dispatch(getWalletsAndPartners());
+    onGetWallets: () => {
+      console.log("onGetWallets");
+      dispatch(getWallets());
     },
     onSetCurrentWallet: (currentWallet) => {
       dispatch(setCurrentWallet(currentWallet));
