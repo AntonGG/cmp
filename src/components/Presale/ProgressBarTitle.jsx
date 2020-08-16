@@ -1,7 +1,7 @@
 import React from "react";
 import progressBar from "../../images/Presale/progressBar.svg";
 import "../../sass/presale/progressBar.sass";
-const ProgressBar = ({ ico_info }) => {
+const ProgressBarTitle = ({ ico_info }) => {
   if (!ico_info) {
     return "";
   }
@@ -18,4 +18,4 @@ const ProgressBar = ({ ico_info }) => {
   );
 };
 
-export default ProgressBar;
+export default ProgressBarTitle;

@@ -1,12 +1,13 @@
 import React from "react";
-import ProgressBar from "./ProgressBar";
-import titleButton from "../../images/Presale/titleButton.svg";
+import ProgressBar from "./ProgressBarTitle";
+import titleButton from "../../images/Presale/titleButton.png";
 import "../../sass/presale/presaleTitle.sass";
+import ProgressBarTitle from "./ProgressBarTitle";
 const PresaleTitle = ({ ico_info }) => {
   return (
     <div className="presale-title">
       <div className="presale-title__left">
-        <p className="presale-title__text">Предпродажа монет</p>
+        <p className="presale-title__text">Private Pre-sale</p>
         <p>
           Private Pre-sale - первоначальный этап продажи CMP coin. В продажу
           поступят 1 000 000 CMP coin. Этап будет ограничен по времени. На
@@ -19,11 +20,13 @@ const PresaleTitle = ({ ico_info }) => {
       <div className="presale-title__right">
         <div className="presale-title__vertical-line-1"></div>
         <p className="font_bold presale-title__selled-coins">
-          {ico_info ? ico_info.selled_coins : "0"} USD
+          Продано: {ico_info ? ico_info.selled_coins : "0"} CMP
         </p>
-        <ProgressBar ico_info={ico_info} />
+        <ProgressBarTitle ico_info={ico_info} />
         <div className="presale-title__vertical-line-2"></div>
-        <p className="font_bold presale-title__coins-left">{ico_info ? ico_info.coins_left : "0"} USD</p>
+        <p className="font_bold presale-title__coins-left">
+          Осталось: {ico_info ? ico_info.coins_left : "0"} CMP
+        </p>
       </div>
     </div>
   );
