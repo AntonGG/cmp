@@ -24,13 +24,6 @@ export class PartnerCabinet extends Component {
             <ListedUsers />
           </div>
           <div className="partner-cabinet__right-block">
-            <Balance
-              wallets={this.props.wallets}
-              currentWallet={this.props.currentWallet}
-              setCurrentWallet={this.props.onSetCurrentWallet}
-              onGetWallets={this.props.onGetWallets}
-            />
-            <CashOut />
             <PaymentHistory payment_history={this.props.payment_history} />
           </div>
         </div>
