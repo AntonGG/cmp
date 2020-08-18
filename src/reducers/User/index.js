@@ -1,4 +1,5 @@
 const initialState = {
+  isPreloader: false,
   isError: false,
   isPopup: false,
   popupMessage: "",

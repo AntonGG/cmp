@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setPreloader, getIcoInfo } from "../../actions/User";
+import Preloader from "../../components/Preloader";
 import Chart from "../../components/Presale/Chart";
 import PresaleTitle from "../../components/Presale/PresaleTitle";
 import ProgressBarBody from "../../components/Presale/ProgressBarBody";
@@ -11,12 +12,18 @@ export class Presale extends Component {
     this.props.onGetIcoInfo();
   }
   render() {
-    const { ico_info } = this.props;
+    const { ico_info, isPreloader } = this.props;
     return (
       <div>
-        <PresaleTitle ico_info={ico_info} />
-        <Chart ico_info={ico_info} />
-        <ProgressBarBody ico_info={ico_info}/>
+        {isPreloader && ico_info ? (
+          <Preloader />
+        ) : (
+          <>
+            <PresaleTitle ico_info={ico_info} />
+            <Chart ico_info={ico_info} />
+            <ProgressBarBody ico_info={ico_info} />
+          </>
+        )}
       </div>
     );
   }
@@ -24,7 +31,9 @@ export class Presale extends Component {
 
 const mapStateToProps = (state) => ({
   ico_info: state.User.ico_info,
+  isPreloader: state.User.isPreloader,
 });
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetIcoInfo: () => {
@@ -35,4 +44,5 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Presale);
