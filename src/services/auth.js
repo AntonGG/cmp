@@ -23,7 +23,6 @@ export const signIn = async (mnemonic) => {
   });
   const json = await resp.json();
   if (json.token) {
-    console.log(json);
     localStorage.setItem("token", json.token);
     return json;
   } else {
@@ -47,7 +46,6 @@ export const signUp = async (mnemonic, invite) => {
   });
   const json = await resp.json();
   if (json.status === "user was saved" && json.token) {
-    console.log(json);
     localStorage.setItem("token", json.token);
     return json;
   } else {

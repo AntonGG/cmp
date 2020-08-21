@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setPreloader, getIcoInfo } from "../../actions/User";
 import Preloader from "../../components/Preloader";
-import Chart from "../../components/Presale/Chart";
+import Chart from "../../components/Chart/Chart";
 import PresaleTitle from "../../components/Presale/PresaleTitle";
 import ProgressBarBody from "../../components/Presale/ProgressBarBody";
 

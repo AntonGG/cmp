@@ -31,7 +31,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     onLogout: (history) => {
-      console.log("history", history);
       dispatch(logout(history));
     },
   };

@@ -6,15 +6,21 @@ const ProgressBarBody = ({ ico_info }) => {
     return "";
   }
   const percents = (ico_info.selled_coins / ico_info.total_amount_sell) * 100;
-  console.log("percents", percents);
   return (
     <div className="progress-bar-body">
       <p className="progress-bar-body__title">Шкала прогресса</p>
       <div className="progress-bar-body__container">
-        
         <div
           style={{ width: percents > 9.5 ? percents : "9.5%" }}
-          className="progress-bar-body__filler"
+          className="progress-bar-body__filler-volume"
+        ></div>
+        <div
+          style={{ width: percents > 9.5 ? percents : "9.5%" }}
+          className="progress-bar-body__filler-price"
+        ></div>
+        <div
+          style={{ width: percents > 9.5 ? percents : "9.5%" }}
+          className="progress-bar-body__filler-capitalization"
         ></div>
         <div className="progress-bar-body__base"></div>
       </div>

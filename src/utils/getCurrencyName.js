@@ -1,5 +1,4 @@
 const getCurrencyFullName = (currencyName) => {
-  console.log("currencyName", currencyName);
   switch (currencyName) {
     case "BTC":
       return "Bitcoin";

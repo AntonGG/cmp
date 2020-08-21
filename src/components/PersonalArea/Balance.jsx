@@ -3,7 +3,6 @@ import "../../sass/personalArea/balance.sass";
 import refreshLogo from "../../images/PersonalArea/refresh.png";
 
 const getCurrency = (currency_prices, currencyName) => {
-  console.log("curremc", currency_prices);
   if (currency_prices) {
     const currency = currency_prices.find(
       (price) => price.currency === currencyName
@@ -22,7 +21,6 @@ const Balance = ({
   onGetWallets,
   currency_prices,
 }) => {
-  console.log("currency_prices", currency_prices);
   const cmpWallet = wallets.find((v) => v.currency === "CMP");
 
   return (

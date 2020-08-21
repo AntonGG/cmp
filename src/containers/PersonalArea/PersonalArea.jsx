@@ -18,7 +18,6 @@ import Rate from "../../components/PersonalArea/Rate";
 import StatusPopup from "../../components/StatusPopup";
 import Preloader from "../../components/Preloader";
 
-
 class PersonalArea extends Component {
   componentDidMount() {
     this.props.onSetPreloader(true);
@@ -108,7 +107,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetWallets: () => {
-      console.log("onGetWallets");
       dispatch(getWallets());
     },
     onSetCurrentWallet: (currentWallet) => {

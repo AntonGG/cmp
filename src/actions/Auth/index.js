@@ -22,7 +22,6 @@ export const signIn = (mnemonic, history) => async (dispatch) => {
   try {
     const isAuth = await signInFetch(mnemonic);
     dispatch({ type: "FINISH_LOADING_SIGN_IN" });
-    console.log("isAuth " + isAuth);
 
     if (isAuth) {
       if (isAuth.error) {
@@ -55,7 +54,7 @@ export const signUp = (mnemonic, history, invite) => async (dispatch) => {
   try {
     const isAuth = await signUpFetch(mnemonic, invite);
     dispatch({ type: "FINISH_LOADING_SIGN_UP" });
-    console.log("isAuth " + isAuth);
+
     if (isAuth) {
       if (isAuth.error) {
         dispatch({ type: "SIGN_UP_INVALID" });

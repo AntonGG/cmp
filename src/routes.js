@@ -79,11 +79,9 @@ const ROUTES = [
     key: "LK",
     component: (props) => {
       const token = localStorage.getItem("token");
-      console.log(token);
       if (token) {
         return <RenderRoutes {...props} />;
       } else {
-        //alert("You need to log in to access app routes");
         return <Redirect to={"/"} />;
       }
     },

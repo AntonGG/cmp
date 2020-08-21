@@ -12,7 +12,6 @@ export const getWallets = async () => {
   });
   const json = await resp.json();
   if (json) {
-    console.log(json);
     return json;
   } else {
     return false;
@@ -30,7 +29,6 @@ export const getIcoInfo = async () => {
   });
   const json = await resp.json();
   if (json) {
-    console.log(json);
     return json;
   } else {
     return false;
@@ -52,7 +50,6 @@ export const convertCrypto = async (coin_code) => {
   });
   const json = await resp.json();
   if (json) {
-    console.log(json);
     return json;
   } else {
     return false;
@@ -75,7 +72,6 @@ export const withdrawCmp = async (address, amount) => {
   });
   const json = await resp.json();
   if (json) {
-    console.log(json);
     return json;
   } else {
     return false;

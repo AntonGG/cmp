@@ -2,10 +2,6 @@ import React from "react";
 import "../sass/statusPopup.sass";
 
 const StatusPopup = ({ isPopup, popupClose, isError, statusMsg }) => {
-  console.log("isPopup", isPopup);
-  console.log("isError", isError);
-  console.log("statusMsg", statusMsg);
-
   if (!isPopup) {
     return "";
   }

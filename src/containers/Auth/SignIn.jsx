@@ -8,8 +8,6 @@ import ErrorBlock from "../../components/ErrorBlock";
 
 class SignIn extends React.Component {
   componentDidMount() {
-    console.log("DFFWEFFFEWFWEFEFWEFF");
-    console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
       this.props.onSetInput({ isAuth: true });
       this.props.history.push("/lk/balance");

@@ -21,7 +21,6 @@ class Inviter extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSetInvite: (invite) => {
-      console.log("onSetInvite");
       dispatch(setInvite(invite));
     },
   };

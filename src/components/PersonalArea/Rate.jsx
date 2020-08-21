@@ -6,7 +6,6 @@ const Rate = ({ currency_prices, cmpWallet }) => {
   if (!currency_prices || !cmpWallet) {
     return "";
   }
-  console.log("currency_prices", currency_prices);
   return (
     <div className="rate">
       <div className="rate__menu">

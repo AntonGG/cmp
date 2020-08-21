@@ -86,7 +86,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetWallets: () => {
-      console.log("onGetWallets");
       dispatch(getWallets());
     },
     onSetCurrentWallet: (currentWallet) => {
