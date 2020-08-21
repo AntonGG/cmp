@@ -9,18 +9,30 @@ const ProgressBarBody = ({ ico_info }) => {
   return (
     <div className="progress-bar-body">
       <p className="progress-bar-body__title">Шкала прогресса</p>
-      <div className="progress-bar-body__container">
+      <div className="progress-bar-body__progress-title">
+        <div className="progress-bar-body__progress-title-item">
+          <p>Starting price</p>
+          <p className="progress-bar-body__progress-title-price">0.15 USDT</p>
+          <p>Presale Phase</p>
+        </div>
+        <div className="progress-bar-body__progress-title-item">
+          <p>Итоговая цена </p>
+          <p>100,000,000 LYXe</p>
+          <p>Final market cap: 51,076,800 USD</p>
+        </div>
+      </div>
+      <div className="progress-bar-body__progress-container">
         <div
-          style={{ width: percents > 9.5 ? percents : "9.5%" }}
-          className="progress-bar-body__filler-volume"
+          style={{ width: percents > 9.5 ? percents : "60%" }}
+          className="progress-bar-body__filler-capitalization"
         ></div>
         <div
-          style={{ width: percents > 9.5 ? percents : "9.5%" }}
+          style={{ width: percents > 9.5 ? percents : "30%" }}
           className="progress-bar-body__filler-price"
         ></div>
         <div
-          style={{ width: percents > 9.5 ? percents : "9.5%" }}
-          className="progress-bar-body__filler-capitalization"
+          style={{ width: percents > 9.5 ? percents : "15%" }}
+          className="progress-bar-body__filler-volume"
         ></div>
         <div className="progress-bar-body__base"></div>
       </div>

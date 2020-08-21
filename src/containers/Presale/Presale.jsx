@@ -5,6 +5,7 @@ import Preloader from "../../components/Preloader";
 import Chart from "../../components/Chart/Chart";
 import PresaleTitle from "../../components/Presale/PresaleTitle";
 import ProgressBarBody from "../../components/Presale/ProgressBarBody";
+import Explanation from "../../components/Presale/Explanation";
 
 export class Presale extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ export class Presale extends Component {
             <PresaleTitle ico_info={ico_info} />
             <Chart ico_info={ico_info} />
             <ProgressBarBody ico_info={ico_info} />
+            <Explanation />
           </>
         )}
       </div>

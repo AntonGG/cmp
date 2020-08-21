@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { setInput } from "./actions/Auth";
 import AppBar from "./containers/AppBar/AppBar";
 import Footer from "./components/Footer/Footer";
-import "./App.sass";
+import "./sass/app.sass";
 import "./fonts/GothamPro/stylesheet.css";
 
 export class App extends Component {

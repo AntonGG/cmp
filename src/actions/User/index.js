@@ -22,6 +22,7 @@ export const getWallets = () => async (dispatch) => {
 };
 
 export const getIcoInfo = () => async (dispatch) => {
+  dispatch({ type: "SET_INPUT", payload: { isPreloader: true } });
   const json = await getIcoInfoFetch();
   dispatch({ type: "SET_INPUT", payload: { isPreloader: false, ...json } });
 };

@@ -1,3 +1,13 @@
+=progress-bar-body__filler($backgroundColor)
+    position: absolute
+    z-index: 999
+    margin: auto auto 0 0
+    width: 10%
+    height: 56px
+    height: 32px
+    background-color: $backgroundColor
+    border-radius: 10px 0 0 10px
+
 .progress-bar-body
     display: flex
     justify-content: center
@@ -6,8 +16,19 @@
 
 .progress-bar-body__title
     font-size: 36px
-    
-.progress-bar-body__container
+    margin-top: 150px
+    margin-bottom: 0
+
+.progress-bar-body__progress-title
+    width: 1140px
+    display: flex
+    justify-content: space-between
+
+.progress-bar-body__progress-title-price
+    font-size: 24px
+    font-weight: bold
+    margin: 0
+.progress-bar-body__progress-container
     position: relative
     width: 1140px
     height: 32px
@@ -21,34 +42,10 @@
     border-radius: 10px
 
 .progress-bar-body__filler-volume
-    position: absolute
-    z-index: 999
-    // top: -61px
-    margin: auto auto 0 0
-    width: 10%
-    height: 56px
-    height: 32px
-    background-color: #3B3B3B
-    border-radius: 10px 0 0 10px
+    +progress-bar-body__filler(#3B3B3B)
 
 .progress-bar-body__filler-price
-    position: absolute
-    z-index: 999
-    // top: -61px
-    margin: auto auto 0 0
-    width: 10%
-    height: 56px
-    height: 32px
-    background-color: #479D6F
-    border-radius: 10px 0 0 10px
+    +progress-bar-body__filler(#479D6F)
 
 .progress-bar-body__filler-capitalization
-    position: absolute
-    z-index: 999
-    // top: -61px
-    margin: auto auto 0 0
-    width: 10%
-    height: 56px
-    height: 32px
-    background-color: #ffffff
-    border-radius: 10px 0 0 10px
+    +progress-bar-body__filler(#62C260)
