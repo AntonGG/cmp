@@ -35,6 +35,7 @@ const Chart = memo(({ ico_info }) => {
   } else {
     return (
       <div className="chart">
+        <p className="chart__title">Капитализация</p>
         <AreaChart width={1140} height={454}>
           <defs>
             <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">

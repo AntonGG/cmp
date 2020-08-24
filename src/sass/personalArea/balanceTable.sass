@@ -49,6 +49,7 @@
         color: #ff7d3d
 
 .balance-table__title-row
+    width: 100%
     display: flex
     justify-content: flex-end
     margin-bottom: 10px
@@ -155,10 +156,11 @@
     &:active
         transform: translateY(2px)
 
-.balance-table-buy-button
+.balance-table__buy-button
+    margin-right: 5px
     cursor: pointer
     height: 40px
-    width: 130px
+    width: 50%
     margin-right: 5px
     border-radius: 10px
     border: none
@@ -176,3 +178,6 @@
 
 .balance-table__cash-in-button
     +button(#8085bf, #ffffff)
+    width: 50% !important
+    margin-left: 5px
+    margin-right: 0

@@ -21,11 +21,16 @@ const PaymentHistory = ({ payment_history }) => {
           Скачать отчет
         </button>
       </div>
+      <hr />
       <div className="payment-history__table">
-        
         {payment_history &&
           payment_history.map((payment, i) => (
-            <div key={i} className="payment-history__item">
+            <div
+              key={i}
+              className={`payment-history__item ${
+                i % 2 === 0 ? "" : "payment-history__item__active"
+              }`}
+            >
               <div className="payment-history__first-div">
                 <p>{dateFormat(payment.date, "HH:MM")}</p>
                 <p>{dateFormat(payment.date, "dd.mm.yyyy")}</p>

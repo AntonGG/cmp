@@ -6,6 +6,7 @@ import Chart from "../../components/Chart/Chart";
 import PresaleTitle from "../../components/Presale/PresaleTitle";
 import ProgressBarBody from "../../components/Presale/ProgressBarBody";
 import Explanation from "../../components/Presale/Explanation";
+import ProgressBarDate from "../../components/Presale/ProgressBarDate";
 
 export class Presale extends Component {
   componentDidMount() {
@@ -16,12 +17,13 @@ export class Presale extends Component {
     const { ico_info, isPreloader } = this.props;
     return (
       <div>
-        {isPreloader && ico_info ? (
+        {isPreloader ? (
           <Preloader />
         ) : (
           <>
             <PresaleTitle ico_info={ico_info} />
             <Chart ico_info={ico_info} />
+            <ProgressBarDate ico_info={ico_info}/>
             <ProgressBarBody ico_info={ico_info} />
             <Explanation />
           </>
