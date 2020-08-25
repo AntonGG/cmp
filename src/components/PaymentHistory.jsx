@@ -40,8 +40,7 @@ const PaymentHistory = ({ payment_history }) => {
                 <p className="payment-history__address">{payment.address}</p>
               </div>
               <div className="payment-history__last-div">
-                <p>{payment.amount}</p>
-                <p>{payment.val}</p>
+                <p>{`${payment.amount} ${payment.val}`}</p>
               </div>
             </div>
           ))}

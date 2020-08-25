@@ -21,8 +21,8 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
       >
         <g filter="url(#filter0_d)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M41 51C29.402 51 20 60.402 20 72V119.167C20 130.765 29.402 140.167 41 140.167H99.4909L114 158L128.509 140.167H188C199.598 140.167 209 130.765 209 119.167V72C209 60.402 199.598 51 188 51H41Z"
             fill="#3B3B3B"
           />
@@ -98,9 +98,9 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
             width="229"
             height="147"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -131,9 +131,9 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
             width="197"
             height="75"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
