@@ -110,7 +110,10 @@ const Chart = memo(({ ico_info }) => {
           />
 
           {/* <Tooltip content={<CustomTooltip />} /> */}
-          <Legend verticalAlign="top" content={<CustomLegend />} />
+          <Legend
+            verticalAlign="top"
+            content={<CustomLegend ico_info={ico_info} />}
+          />
           <XAxis
             type="number"
             dataKey="date"

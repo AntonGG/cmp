@@ -1,7 +1,11 @@
 import React from "react";
+import PriceLogo from "../../images/Presale/price.svg";
+import MarketcapLogo from "../../images/Presale/marketcap.svg";
+import VolumeLogo from "../../images/Presale/volume.svg";
 import "../../sass/chart/customLegend.sass";
 
-const CustomLegend = () => {
+const CustomLegend = ({ ico_info }) => {
+  const clouds = ico_info.clouds;
   const logo = () => (
     <svg
       width="54"
@@ -16,24 +20,24 @@ const CustomLegend = () => {
   return (
     <div className="custom-legend">
       <div className="custom-legend__item">
-        {logo()}
+        <img className="custom-legend__logo" src={MarketcapLogo} alt="MarketcapLogo" />
         <div>
-          <p className="custom-legend__item-title">Merketcap</p>
-          <p className="custom-legend__item-volume">170 USD</p>
+          <p className="custom-legend__item-title">Marketcap</p>
+          <p className="custom-legend__item-volume">{clouds.marketcap} USD</p>
         </div>
       </div>
       <div className="custom-legend__item">
-        {logo()}
+        <img className="custom-legend__logo" src={VolumeLogo} alt="VolumeLogo" />
         <div>
-          <p className="custom-legend__item-title">Merketcap</p>
-          <p className="custom-legend__item-volume">170 USD</p>
+          <p className="custom-legend__item-title">Volume</p>
+          <p className="custom-legend__item-volume">{clouds.volume} USD</p>
         </div>
       </div>
       <div className="custom-legend__item">
-        {logo()}
+        <img className="custom-legend__logo" src={PriceLogo} alt="PriceLogo" />
         <div>
-          <p className="custom-legend__item-title">Merketcap</p>
-          <p className="custom-legend__item-volume">170 USD</p>
+          <p className="custom-legend__item-title">Price</p>
+          <p className="custom-legend__item-volume">{clouds.price} %</p>
         </div>
       </div>
       <div className="custom-legend__info">
