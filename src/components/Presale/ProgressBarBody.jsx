@@ -32,30 +32,30 @@ const ProgressBarBody = ({ ico_info }) => {
       <div className="progress-bar-body__container">
         <div
           style={{
-            width: percentsCurrentPrice > 20 ? percentsCurrentPrice : "40%",
-          }}
-          className="progress-bar-body__filler-current-price"
-        >
-          <p>Current price</p>
-        </div>
-        <div
-          style={{
-            width: percentsYesterdayPrice > 15 ? percentsYesterdayPrice : "25%",
+            width: percentsYesterdayPrice > 15 ? percentsYesterdayPrice : "27%",
           }}
           className="progress-bar-body__filler-yesterday-price"
         >
-          <p>Yesterday price</p>
+          <p className="progress-bar-body__filler-text">{`${ico_info.scales2.yesterday_price} USDT`}</p>
         </div>
         <div
           style={{
-            width: percentsStartingPrice > 10 ? percentsStartingPrice : "10%",
+            width: percentsCurrentPrice > 20 ? percentsCurrentPrice : "17%",
+          }}
+          className="progress-bar-body__filler-current-price"
+        >
+          <p className="progress-bar-body__filler-text">{`${ico_info.scales2.currency_price} USDT`}</p>
+        </div>
+        <div
+          style={{
+            width: percentsStartingPrice > 10 ? percentsStartingPrice : "8%",
           }}
           className="progress-bar-body__filler-starting-price"
         >
-          <p>Starting price</p>
+          <p className="progress-bar-body__filler-text">{`${ico_info.scales2.starting_price} USDT`}</p>
         </div>
         <div className="progress-bar-body__base">
-          <p>Finale price</p>
+          <p className="progress-bar-body__filler-text">{`${ico_info.scales2.finale_price} USDT`}</p>
         </div>
       </div>
 

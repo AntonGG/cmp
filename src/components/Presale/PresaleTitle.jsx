@@ -1,5 +1,4 @@
 import React from "react";
-import ProgressBar from "./ProgressBarTitle";
 import titleButton from "../../images/Presale/titleButton.png";
 import "../../sass/presale/presaleTitle.sass";
 import ProgressBarTitle from "./ProgressBarTitle";
@@ -14,7 +13,9 @@ const PresaleTitle = ({ ico_info }) => {
           данном этапе планируется привлечь ограниченное количество инвесторов.
         </p>
         <div className="presale-title__button">
-          <img src={titleButton} alt="TitleButton" />
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSddW41iUr0QdAtCOINlqsm7B_1QpVY9ff-SRuzYEhJh5fYy0Q/viewform">
+            <img src={titleButton} alt="TitleButton" />
+          </a>
         </div>
       </div>
       <div className="presale-title__right">

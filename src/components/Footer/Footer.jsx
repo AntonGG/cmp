@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer_left-block">
         <img src={logo} alt="Logo" />
         <p>(c) 2020 CMP</p>
-        <a href="/http://crossmarket.place/">crossmarket.place ico</a>
+        <a href="http://crossmarket.place/">crossmarket.place ico</a>
       </div>
       <div className="footer_right-block">
         <div>
