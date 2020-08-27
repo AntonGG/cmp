@@ -17,6 +17,7 @@ class SignIn extends React.Component {
     const { mnemonic, onSignIn, onSetInput, isError, errorMsg } = this.props;
     return (
       <div className="auth">
+        <div className="auth__background"></div>
         <Menu type={true} />
         <div className="auth__text-area">
           <h3>Войдите в систему</h3>

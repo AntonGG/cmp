@@ -7,6 +7,10 @@
     height: 32px
     background-color: $backgroundColor
     border-radius: 10px 0 0 10px
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    padding-right: 10px
 
 .progress-bar-body
     display: flex
@@ -47,12 +51,23 @@
     height: 32px
     background: #e0e0e0
     border-radius: 10px
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    padding-right: 10px
 
-.progress-bar-body__filler-volume
+.progress-bar-body__filler-starting-price
+    color: #ffffff
     +progress-bar-body__filler(#3B3B3B)
 
-.progress-bar-body__filler-price
+.progress-bar-body__filler-yesterday-price
     +progress-bar-body__filler(#479D6F)
 
-.progress-bar-body__filler-capitalization
+.progress-bar-body__filler-current-price
     +progress-bar-body__filler(#62C260)
+
+.progress-bar-body__footer-container
+    display: flex
+    justify-content: flex-end
+    width: 1140px
+    text-align: right

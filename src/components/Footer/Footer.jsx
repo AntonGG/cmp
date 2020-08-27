@@ -1,38 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 import logo from "../../images/AppBar/logo.png";
 import "../../sass/footer.sass";
+
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer_left-block">
         <img src={logo} alt="Logo" />
-        <p>(c) 2020 CMP by Gregor</p>
-        <Link to="/home">Политика конфиденциальности</Link>
+        <p>(c) 2020 CMP</p>
+        <a href="/http://crossmarket.place/">crossmarket.place ico</a>
       </div>
       <div className="footer_right-block">
         <div>
           <p>Помощь</p>
-          <Link to="/home">База знаний</Link>
-          <Link to="/home">Форум</Link>
-          <Link to="/home">Тех поддержка</Link>
+          <a href="https://t.me/CMPairdropru_bot">Airdrop CMP</a>
+          <a href="https://t.me/cmpchat_ru">Наш телеграм чат</a>
+          <a href="https://t.me/cmplace">Наш телеграм канал</a>
         </div>
         <div>
           <p>Информация</p>
-          <Link to="/home">Последние выплаты</Link>
-          <Link to="/home">Публикации</Link>
-          <Link to="/home">Каталог</Link>
+
+          <a href="https://twitter.com/cmpcoin">Twitter</a>
+          <a href="https://www.facebook.com/groups/cmpcoin/">Facebook</a>
+          <a href="https://medium.com/@crossmarketplace">Medium</a>
         </div>
         <div>
           <p>Правила</p>
-          <Link to="/home">Правила сервиса</Link>
-          <Link to="/home">Услуги</Link>
-          <Link to="/home">Порядок оплаты</Link>
+          <a href="/home">Правила сервиса</a>
+          <a href="/home">Услуги</a>
+          <a href="/home">Порядок оплаты</a>
         </div>
         <div>
           <p>О нас</p>
-          <Link to="/home">Контакты</Link>
-          <Link to="/home">Блог</Link>
+          <a href="/home">Контакты</a>
+          <a href="/home">Пользовательское соглашение</a>
         </div>
       </div>
     </div>

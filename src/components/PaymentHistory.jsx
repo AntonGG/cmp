@@ -13,6 +13,7 @@ const paymentStatusSwitch = (status) => {
 };
 
 const PaymentHistory = ({ payment_history }) => {
+  console.log(payment_history);
   return (
     <div className="payment-history">
       <div className="payment-history__menu">
@@ -22,9 +23,9 @@ const PaymentHistory = ({ payment_history }) => {
         </button>
       </div>
       <hr />
-      <div className="payment-history__table">
-        {payment_history &&
-          payment_history.map((payment, i) => (
+      {payment_history && payment_history.length !== 0 ? (
+        <div className="payment-history__table">
+          {payment_history.map((payment, i) => (
             <div
               key={i}
               className={`payment-history__item ${
@@ -44,7 +45,12 @@ const PaymentHistory = ({ payment_history }) => {
               </div>
             </div>
           ))}
-      </div>
+        </div>
+      ) : (
+        <div className="payment-history__not-found">
+          <p>У вас пока ничего нет</p>
+        </div>
+      )}
     </div>
   );
 };

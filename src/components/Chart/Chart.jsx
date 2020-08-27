@@ -109,7 +109,7 @@ const Chart = memo(({ ico_info }) => {
             domain={[(dataMin) => 0, (dataMax) => dataMax + 5]}
           />
 
-          {/* <Tooltip content={<CustomTooltip />} /> */}
+          <Tooltip content={<CustomTooltip />} />
           <Legend
             verticalAlign="top"
             content={<CustomLegend ico_info={ico_info} />}
