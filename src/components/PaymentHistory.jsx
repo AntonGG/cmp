@@ -13,7 +13,6 @@ const paymentStatusSwitch = (status) => {
 };
 
 const PaymentHistory = ({ payment_history }) => {
-  console.log(payment_history);
   return (
     <div className="payment-history">
       <div className="payment-history__menu">

@@ -132,7 +132,7 @@ const BalanceTable = ({
                       }}
                       className="balance-table__cash-in-button"
                     >
-                      <p>Пополнить</p>
+                      <p>Пополнить {wallet.currency}</p>
                     </div>
                   </div>
                 </div>

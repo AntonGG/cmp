@@ -3,6 +3,7 @@ import {
   getIcoInfo as getIcoInfoFetch,
   convertCrypto as convertCryptoFetch,
   withdrawCmp as withdrawCmpFetch,
+  getReferralCabinet as getReferralCabinetFetch,
 } from "../../services/user";
 
 export const setMnemonic = (mnemonic) => async (dispatch) => {
@@ -14,6 +15,11 @@ export const setPreloader = (isPreloader) => async (dispatch) => {
 
 export const popupClose = () => async (dispatch) => {
   dispatch({ type: "SET_INPUT", payload: { isError: false, isPopup: false } });
+};
+
+export const getReferralCabinet = () => async (dispatch) => {
+  const json = await getReferralCabinetFetch();
+  dispatch({ type: "SET_INPUT", payload: { isPreloader: false, ...json } });
 };
 
 export const getWallets = () => async (dispatch) => {

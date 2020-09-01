@@ -1,8 +1,11 @@
 import React, { memo } from "react";
 
 const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
+  const x = cx > 900 ? cx - 230 : cx - 114;
+  const y = cy - 240;
+
   if (
-    ico_info &&
+    !ico_info ||
     ico_info.dates[ico_info.dates.length - 1].date !== payload.date
   ) {
     return "";
@@ -11,11 +14,11 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
   return (
     <>
       <svg
-        x={cx - 114}
-        y={cy - 270}
-        width="229"
-        height="198"
-        viewBox="0 0 229 198"
+        x={x}
+        y={y}
+        width="1140"
+        height="454"
+        viewBox="0 0 1140 454"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

@@ -1,6 +1,23 @@
 import config from "../configs/config";
 
 //Запрашиваем баланс cmp, партнеров и кошельки
+export const getReferralCabinet = async () => {
+  const resp = await fetch(`${config.url}/users/referral_cabinet/`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ token: localStorage.getItem("token") }),
+  });
+  const json = await resp.json();
+  if (json) {
+    return json;
+  } else {
+    return false;
+  }
+};
+//Запрашиваем баланс cmp, партнеров и кошельки
 export const getWallets = async () => {
   const resp = await fetch(`${config.url}/users/getWallets/`, {
     headers: {

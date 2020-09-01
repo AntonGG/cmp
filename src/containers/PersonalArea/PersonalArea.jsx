@@ -7,6 +7,7 @@ import MenuPersonalArea from "../../components/MenuPersonalArea";
 import { connect } from "react-redux";
 import {
   convertCrypto,
+  getReferralCabinet,
   getWallets,
   popupClose,
   setCurrentWallet,
@@ -20,8 +21,11 @@ import Preloader from "../../components/Preloader";
 
 class PersonalArea extends Component {
   componentDidMount() {
-    this.props.onSetPreloader(true);
-    this.props.onGetWallets();
+    const { wallets, onGetWallets, onSetPreloader } = this.props;
+    if (!wallets || wallets.length === 0) {
+      onSetPreloader(true);
+    }
+    onGetWallets();
   }
   render() {
     const {

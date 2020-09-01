@@ -18,7 +18,7 @@ const CustomAxisTick = memo(({ x, y, payload }) => {
         <circle cx="50" cy="50" r="50" fill="black" />
       </svg>
       <text x={x - 35} y={y + 17} textAnchor="center" fill="#666">
-        {moment(Number(payload.value) * 1000).format("MMM Do")}
+        {moment.unix(payload.value).format("MMM Do")}
       </text>
     </svg>
   );

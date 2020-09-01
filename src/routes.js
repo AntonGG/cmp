@@ -31,12 +31,40 @@ export function RenderRoutes({ routes }) {
   );
 }
 
+const arr = `
+http://ali.pub/2sjlnd
+http://ali.pub/2u76h2
+http://ali.pub/2ndpnd
+http://ali.pub/2qnnws
+http://ali.pub/2tiqzo
+http://ali.pub/2jtm1j
+http://ali.pub/2t00a2
+http://ali.pub/2qcnwp
+http://ali.pub/2qcoj2
+http://ali.pub/2urvnl
+http://ali.pub/2urvod
+http://ali.pub/2vegw4`.split("\n");
+
 const ROUTES = [
   {
     path: "/:invite",
     key: "ROOT_INVITE",
     exact: true,
     component: Inviter,
+  },
+  {
+    path: "/youtube/123",
+    key: "ROOT_3",
+    exact: true,
+    component: () => (
+      <div>
+        {arr.map((v) => (
+          <div>
+            <a href={v}>{v}</a>
+          </div>
+        ))}
+      </div>
+    ),
   },
   {
     path: "/",

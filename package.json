@@ -8,8 +8,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-  
     "css-loader": "3.4.2",
+    "d3-scale": "^3.2.2",
+    "d3-time": "^2.0.0",
+    "d3-time-format": "^3.0.0",
     "dateformat": "^3.0.3",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.2.1",
@@ -43,6 +45,7 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
     "react-use-clipboard": "^1.0.0",
     "recharts": "^1.8.5",
     "redux": "^4.0.5",
@@ -54,8 +57,7 @@
     "style-loader": "0.23.1",
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
-    "use-clipboard-copy": "^0.1.2",
-    "react-scripts": "3.4.3"
+    "use-clipboard-copy": "^0.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

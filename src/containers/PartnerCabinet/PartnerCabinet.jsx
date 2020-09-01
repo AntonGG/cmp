@@ -1,44 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getWallets, setCurrentWallet } from "../../actions/User";
-import CashOut from "../../components/CashOut";
+import {
+  getReferralCabinet,
+  getWallets,
+  setPreloader,
+} from "../../actions/User";
 import MenuPersonalArea from "../../components/MenuPersonalArea";
-import Balance from "../../components/PersonalArea/Balance";
 import ListedUsers from "../../components/PartnerCabinet/ListedUsers";
 import PartnerUrl from "../../components/PartnerCabinet/PartnerUrl";
+import Preloader from "../../components/Preloader";
 
 import "../../sass/partnerCabinet/partnerCabinet.sass";
-import PaymentHistory from "../../components/PaymentHistory";
 export class PartnerCabinet extends Component {
   componentDidMount() {
-    this.props.onGetWallets();
+    const {
+      inviterlink,
+      onGetReferralCabinet,
+      onGetWallets,
+      onSetPreloader,
+    } = this.props;
+    if (!inviterlink || inviterlink.length === 0) {
+      onSetPreloader(true);
+    }
+    onGetWallets();
+    onGetReferralCabinet();
+    
   }
   render() {
+    const { isPreloader, inviterlink } = this.props;
     return (
       <div className="partner-cabinet-area">
         <p className="partner-cabinet__title">Партнерский кабинет</p>
         <MenuPersonalArea type={false} />
-        <div className="partner-cabinet-area__body">
-          <div className="partner-cabinet__left-block">
-            <PartnerUrl inviterlink={this.props.inviterlink} />
-            <ListedUsers />
+        {isPreloader ? (
+          <Preloader />
+        ) : (
+          <div className="partner-cabinet-area__body">
+            <div className="partner-cabinet__left-block">
+              <PartnerUrl inviterlink={inviterlink} />
+            </div>
+            <div className="partner-cabinet__right-block">
+              <ListedUsers />
+            </div>
           </div>
-          <div className="partner-cabinet__right-block">
-            <PaymentHistory payment_history={this.props.payment_history} />
-          </div>
-        </div>
+        )}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  inviters: state.User.inviters,
-  wallets: state.User.wallets,
-  currentWallet: state.User.currentWallet,
-  lastCompletedTasks: state.User.lastCompletedTasks,
   inviterlink: state.User.inviterlink,
-  payment_history: state.User.payment_history,
+  isPreloader: state.User.isPreloader,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -46,8 +59,11 @@ const mapDispatchToProps = (dispatch) => {
     onGetWallets: () => {
       dispatch(getWallets());
     },
-    onSetCurrentWallet: (currentWallet) => {
-      dispatch(setCurrentWallet(currentWallet));
+    onGetReferralCabinet: () => {
+      dispatch(getReferralCabinet());
+    },
+    onSetPreloader: (isPreloader) => {
+      dispatch(setPreloader(isPreloader));
     },
   };
 };
