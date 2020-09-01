@@ -7,6 +7,8 @@ import {
 } from "../../actions/User";
 import MenuPersonalArea from "../../components/MenuPersonalArea";
 import ListedUsers from "../../components/PartnerCabinet/ListedUsers";
+import PartnersTable from "../../components/PartnerCabinet/PartnersTable";
+import PartnerStatistics from "../../components/PartnerCabinet/PartnerStatistics";
 import PartnerUrl from "../../components/PartnerCabinet/PartnerUrl";
 import Preloader from "../../components/Preloader";
 
@@ -24,10 +26,9 @@ export class PartnerCabinet extends Component {
     }
     onGetWallets();
     onGetReferralCabinet();
-    
   }
   render() {
-    const { isPreloader, inviterlink } = this.props;
+    const { isPreloader, inviterlink, partners, referrals } = this.props;
     return (
       <div className="partner-cabinet-area">
         <p className="partner-cabinet__title">Партнерский кабинет</p>
@@ -40,7 +41,8 @@ export class PartnerCabinet extends Component {
               <PartnerUrl inviterlink={inviterlink} />
             </div>
             <div className="partner-cabinet__right-block">
-              <ListedUsers />
+              <PartnersTable partners={partners} />
+              <PartnerStatistics referrals={referrals} />
             </div>
           </div>
         )}
@@ -52,6 +54,8 @@ export class PartnerCabinet extends Component {
 const mapStateToProps = (state) => ({
   inviterlink: state.User.inviterlink,
   isPreloader: state.User.isPreloader,
+  partners: state.User.partners,
+  referrals: state.User.referrals,
 });
 
 const mapDispatchToProps = (dispatch) => {
