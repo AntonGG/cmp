@@ -9,7 +9,7 @@ const PartnerStatistics = ({ referrals }) => {
   return (
     <div className="partner-statistics">
       <div className="partner-statistics__menu">
-        <p className="partner-statistics__title">Партнеры</p>
+        <p className="partner-statistics__title">Статистика</p>
         <button className="partner-statistics__download-button">
           Скачать отчет
         </button>
