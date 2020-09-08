@@ -45,18 +45,6 @@ const ROUTES = [
     component: () => <Redirect to={"/auth/signIn"} />,
   },
   { path: "/home", key: "ROOT", exact: true, component: () => <h1>HOME</h1> },
-  // {
-  //   path: "/inv",
-  //   key: "INV",
-  //   component: RenderRoutes,
-  //   routes: [
-  //     {
-  //       path: "/inv/:invite",
-  //       key: "INV_INVITE",
-  //       component: Inviter,
-  //     },
-  //   ],
-  // },
   {
     path: "/auth",
     key: "AUTH",

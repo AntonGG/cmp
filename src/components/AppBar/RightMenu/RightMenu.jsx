@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import settingsLogo from "../../../images/AppBar/settings.png";
+import LangSwitcher from "../../LangSwitcher";
+
 const RightMenu = ({ isAuth, onLogout, history }) => {
+  const { t } = useTranslation();
   return (
     <div className="right-menu">
       {isAuth ? (
         <>
-          <Link to="/auth/signIn">Настройки</Link>
+          <Link to="/auth/signIn">{t("menu__settings")}</Link>
           <Link onClick={() => onLogout(history)} to="/">
-            Выход
+            {t("menu__logout")}
           </Link>
           <Link to="/">
             <img
@@ -20,8 +24,8 @@ const RightMenu = ({ isAuth, onLogout, history }) => {
         </>
       ) : (
         <>
-          <Link to="/auth/signIn">Вход</Link>
-          <Link to="/auth/signUp">Регистрация</Link>
+          <Link to="/auth/signIn">{t("menu__sign_in")}</Link>
+          <Link to="/auth/signUp">{t("menu__sign_up")}</Link>
           <Link to="/">
             <img
               className="app-bar_settings-logo"
@@ -31,6 +35,7 @@ const RightMenu = ({ isAuth, onLogout, history }) => {
           </Link>
         </>
       )}
+      <LangSwitcher />
     </div>
   );
 };

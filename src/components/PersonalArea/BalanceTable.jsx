@@ -5,7 +5,7 @@ import refreshLogo from "../../images/PersonalArea/refresh.png";
 import getCurrencyFullName from "../../utils/getCurrencyName";
 import CashInPopup from "./CashInPopup";
 import CashOutPopup from "./CashOutPopup";
-
+import { useTranslation } from "react-i18next";
 // const getCurrencyPrice = (currency_prices, currencyName) => {
 //   console.log("getCurrencyPrice", currency_prices, currencyName);
 //   if (currency_prices) {
@@ -34,6 +34,7 @@ const BalanceTable = ({
   popupMessage,
   popupClose,
 }) => {
+  const { t } = useTranslation();
   const cmp = getCmp(wallets);
   const [isCashInPopup, setIsCashInPopup] = useState(false);
   const [currentWalletPopup, setCurrentWalletPopup] = useState({});
@@ -72,7 +73,9 @@ const BalanceTable = ({
               <p className="balance__count">{cmp ? cmp.balance : "0"}</p>
             </div>
             <p className="balance__dash__orange">&mdash;</p>
-            <p className="balance__naming">Ваш баланс CMP</p>
+            <p className="balance__naming">
+              {t("balance_table__your_balance_cmp")}
+            </p>
           </div>
           <div className="balance-table__cmp-buttons">
             <div
@@ -82,7 +85,7 @@ const BalanceTable = ({
               }}
               className="balance-table__cash-button__white"
             >
-              <p>Вывести</p>
+              <p>{t("balance_table__withdraw")}</p>
             </div>
             <div
               onClick={() => {
@@ -91,7 +94,9 @@ const BalanceTable = ({
               }}
               className="balance-table__cash-button__gray"
             >
-              <p>Пополнить</p>
+              <p>
+                <p>{t("balance_table__cash_in")}</p>
+              </p>
             </div>
           </div>
         </div>
@@ -123,7 +128,7 @@ const BalanceTable = ({
                       }
                       className="balance-table__buy-button"
                     >
-                      <p>Купить</p>
+                      <p>{t("balance_table__buy")}</p>
                     </div>
                     <div
                       onClick={() => {
@@ -132,7 +137,9 @@ const BalanceTable = ({
                       }}
                       className="balance-table__cash-in-button"
                     >
-                      <p>Пополнить {wallet.currency}</p>
+                      <p>
+                        {t("balance_table__cash_in")} {wallet.currency}
+                      </p>
                     </div>
                   </div>
                 </div>

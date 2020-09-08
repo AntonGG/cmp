@@ -1,0 +1,19 @@
+{
+    "download_report": "Download report",
+    "menu__finance": "Finance",
+    "menu__partner_cabinet": "Partner cabinet",
+    "menu__presale": "Coin pre-sale",
+    "personal_area": "Personal area",
+    "menu__settings": "Settings",
+    "menu__logout": "Logout",
+    "balance_table__your_balance_cmp": "Your balance CMP",
+    "balance_table__withdraw": "Withdraw",
+    "balance_table__cash_in": "Cash in",
+    "balance_table__buy": "Buy",
+    "payment_history": "Payment history",
+    "you_have_nothing_yet": "You have nothing yet",
+    "footer__help": "Help",
+    "footer__information": "Information",
+    "footer__rules": "Rules",
+    "footer__about": "About"
+}

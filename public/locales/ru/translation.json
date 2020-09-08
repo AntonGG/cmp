@@ -1,0 +1,20 @@
+{
+    "download_report": "Скачать отчет",
+    "menu__finance": "Финансы",
+    "menu__partner_cabinet": "Партнерский кабинет",
+    "menu__presale": "Предпродажа монет",
+    "menu__settings": "Настройки",
+    "menu__sign_in": "Вход",
+    "menu__sign_up": "Регистрация",
+    "menu__logout": "Выход",
+    "balance_table__your_balance_cmp": "Ваш баланс CMP",
+    "balance_table__withdraw": "Вывести",
+    "balance_table__cash_in": "Пополнить",
+    "balance_table__buy": "Купить",
+    "payment_history": "История транзакций",
+    "you_have_nothing_yet": "У вас пока ничего нет",
+    "footer__help": "Помощь",
+    "footer__information": "Информация",
+    "footer__rules": "Правила",
+    "footer__about": "О нас"
+}
