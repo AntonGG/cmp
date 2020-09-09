@@ -2,14 +2,20 @@ import React, { memo } from "react";
 import moment from "moment";
 
 const CustomTooltip = memo(({ active, payload }) => {
-  if (!payload && payload.length < 1) {
+  if (!payload && payload.length < 1 && !payload[0] && !payload[0].payload) {
     return "";
   }
   console.log(payload);
   if (active) {
     return (
       <div className="custom-tooltip">
-        {<p>{moment.unix(payload[0].payload.date).format("DD.MM.YYYY")}</p>}
+        {
+          <p>
+            {payload.length > 0 && payload.payload
+              ? moment.unix(payload[0].payload.date).format("DD.MM.YYYY")
+              : ""}
+          </p>
+        }
         {payload.map((v, i) => {
           switch (v.fill) {
             case "#d4d4d4":

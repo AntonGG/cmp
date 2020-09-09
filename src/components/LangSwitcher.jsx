@@ -23,7 +23,6 @@ const LangSwitcher = () => {
       >
         {langEmodjiArray.map((item, index) => (
           <option key={index} value={item.lang}>
-            {console.log(item.lang)}
             {item.emodji}
           </option>
         ))}
