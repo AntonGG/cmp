@@ -1,15 +1,18 @@
 import React from "react";
 import "../../sass/personalArea/rate.sass";
 import getCurrencyFullName from "../../utils/getCurrencyName";
+import { useTranslation } from "react-i18next";
 
 const Rate = ({ currency_prices, cmpWallet }) => {
+  const { t } = useTranslation();
+
   if (!currency_prices || !cmpWallet) {
     return "";
   }
   return (
     <div className="rate">
       <div className="rate__menu">
-        <p className="rate__title">Курс</p>
+        <p className="rate__title">{t("rate__rate")}</p>
       </div>
       <hr />
       <div>

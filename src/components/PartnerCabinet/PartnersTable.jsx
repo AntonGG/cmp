@@ -1,17 +1,20 @@
 import React from "react";
 import dateFormat from "dateformat";
+import { useTranslation } from "react-i18next";
 import "../../sass/partnerCabinet/partnersTable.sass";
 
 const PartnersTable = ({ partners }) => {
+  const { t } = useTranslation();
+
   if (!partners) {
     return "";
   }
   return (
     <div className="partners-table">
       <div className="partners-table__menu">
-        <p className="partners-table__title">Партнеры</p>
+        <p className="partners-table__title">{t("partners_table__partners")}</p>
         <button className="partners-table__download-button">
-          Скачать отчет
+          {t("download_report")}
         </button>
       </div>
       <hr />

@@ -18,8 +18,8 @@ const Footer = () => {
         <div>
           <p>{t("footer__help")}</p>
           <a href="https://t.me/CMPairdropru_bot">Airdrop CMP</a>
-          <a href="https://t.me/cmpchat_ru">Наш телеграм чат</a>
-          <a href="https://t.me/cmplace">Наш телеграм канал</a>
+          <a href="https://t.me/cmpchat_ru">{t("footer__our_telegram_chat")}</a>
+          <a href="https://t.me/cmplace">{t("footer__our_telegram_channel")}</a>
         </div>
         <div>
           <p>{t("footer__information")}</p>
@@ -30,14 +30,14 @@ const Footer = () => {
         </div>
         <div>
           <p>{t("footer__rules")}</p>
-          <a href="/home">Правила сервиса</a>
-          <a href="/home">Услуги</a>
-          <a href="/home">Порядок оплаты</a>
+          <a href="/home">{t("footer__service_rules")}</a>
+          <a href="/home">{t("footer__services")}</a>
+          <a href="/home">{t("footer__payment_order")}</a>
         </div>
         <div>
           <p>{t("footer__about")}</p>
-          <a href="/home">Контакты</a>
-          <a href="/home">Пользовательское соглашение</a>
+          <a href="/home">{t("footer__contacts")}</a>
+          <a href="/home">{t("footer__terms_of_use")}</a>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 {
+    "error": "Ошибка",
     "download_report": "Скачать отчет",
     "you_have_nothing_yet": "У вас пока ничего нет",
     "menu__finance": "Финансы",
@@ -28,5 +29,23 @@
     "footer__help": "Помощь",
     "footer__information": "Информация",
     "footer__rules": "Правила",
-    "footer__about": "О нас"
+    "footer__about": "О нас",
+    "footer__our_telegram_chat": "Наш телеграм чат",
+    "footer__our_telegram_channel": "Наш телеграм канал",
+    "footer__service_rules": "Правила сервиса",
+    "footer__services": "Услуги",
+    "footer__payment_order": "Порядок оплаты",
+    "footer__contacts": "Контакты",
+    "footer__terms_of_use": "Пользовательское соглашение",
+    "partners__number_of_partners": "Количество партнеров",
+    "rate__rate": "Курс",
+    "partner_url__text": "Ваша партнерская ссылка",
+    "partner_url__copy": "Копировать",
+    "partners_table__partners": "Партнеры",
+    "partner_statistics__statistics": "Статистика",
+    "partner_statistics__number_of_partners": "Количество партнеров",
+    "partner_statistics__open_lines": "Открытые линии",
+    "partner_statistics__steak": "Стейк",
+    "partner_statistics__share_of_steak": "Доля стейка",
+    "partner_statistics__partner_time": "Партнерское время"
 }

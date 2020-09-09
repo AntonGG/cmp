@@ -1,4 +1,5 @@
 {
+    "error": "Error",
     "download_report": "Download report",
     "you_have_nothing_yet": "You have nothing yet",
     "menu__finance": "Finance",
@@ -28,5 +29,23 @@
     "footer__help": "Help",
     "footer__information": "Information",
     "footer__rules": "Rules",
-    "footer__about": "About"
+    "footer__about": "About",
+    "footer__our_telegram_chat": "Our telegram chat",
+    "footer__our_telegram_channel": "Our telegram channel",
+    "footer__service_rules": "Service rules",
+    "footer__services": "Services",
+    "footer__payment_order": "Payment order",
+    "footer__contacts": "Contacts",
+    "footer__terms_of_use": "Terms of use",
+    "partners__number_of_partners": "Number of partners",
+    "rate__rate": "Rate",
+    "partner_url__text": "Your referral link",
+    "partner_url__copy": "Copy",
+    "partners_table__partners": "Partners",
+    "partner_statistics__statistics": "Statistics",
+    "partner_statistics__number_of_partners": "Number of partners",
+    "partner_statistics__open_lines": "Open lines",
+    "partner_statistics__steak": "Steak",
+    "partner_statistics__share_of_steak": "Share of steak",
+    "partner_statistics__partner_time": "Partner time"
 }
