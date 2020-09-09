@@ -1,10 +1,11 @@
 import React from "react";
-import "../../sass/auth/auth.sass";
-import Menu from "../../components/Auth/Menu";
-import { connect } from "react-redux";
-import { setInput, signIn } from "../../actions/Auth";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { withTranslation } from "react-i18next";
+import Menu from "../../components/Auth/Menu";
+import { setInput, signIn } from "../../actions/Auth";
 import ErrorBlock from "../../components/ErrorBlock";
+import "../../sass/auth/auth.sass";
 
 class SignIn extends React.Component {
   componentDidMount() {
@@ -14,27 +15,27 @@ class SignIn extends React.Component {
     }
   }
   render() {
-    const { mnemonic, onSignIn, onSetInput, isError, errorMsg } = this.props;
+    const { mnemonic, onSignIn, onSetInput, isError, errorMsg, t } = this.props;
     return (
       <div className="auth">
         <div className="auth__background"></div>
         <Menu type={true} />
         <div className="auth__text-area">
-          <h3>Войдите в систему</h3>
+          <h3>{t("auth__sign_in")}</h3>
           <input
             onChange={(event) => onSetInput({ mnemonic: event.target.value })}
             className="auth__input"
             value={mnemonic}
-            placeholder="Мнемоническая фраза"
+            placeholder={t("auth__mnemonic_phrase")}
           />
           <ErrorBlock isError={isError} errorMsg={errorMsg} />
           <div
             onClick={() => onSignIn(mnemonic, this.props.history)}
             className="auth__button"
           >
-            Войти &#10230;
+            {t("auth__sign_in__button")} &#10230;
           </div>
-          <Link to="/restore-access">Восстановить доступ</Link>
+          <Link to="/restore-access">{t("auth__restore_access")}</Link>
         </div>
       </div>
     );
@@ -59,4 +60,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withTranslation()(SignIn));

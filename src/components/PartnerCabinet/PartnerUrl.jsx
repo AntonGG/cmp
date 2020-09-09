@@ -20,7 +20,7 @@ const PartnerUrl = ({ inviterlink }) => {
           onClick={() => copyToClipboard(inviterlink)}
           className="auth__copy-button"
         >
-          <p>{t("partner_url__copy")}</p>
+          <p>{t("copy")}</p>
         </div>
       </div>
     </div>

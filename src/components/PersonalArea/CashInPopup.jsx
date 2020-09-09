@@ -42,7 +42,7 @@ const CashInPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
             onClick={() => copyToClipboard(wallet ? wallet.address : "")}
             className="cash-in-popup__copy-button"
           >
-            <p>{t("cash_in_popup__copy")}</p>
+            <p>{t("copy")}</p>
           </div>
         </div>
         <p>{t("cash_in_popup__info", { currency: wallet.currency })}</p>
