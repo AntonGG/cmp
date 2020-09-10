@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { langEmodjiArray } from "../i18n";
-
+import "../sass/langSwitcher.sass";
 const LangSwitcher = () => {
   const { i18n } = useTranslation();
 
@@ -16,6 +16,7 @@ const LangSwitcher = () => {
   return (
     <div>
       <select
+        className="language-switcher-select"
         defaultValue={i18n.language}
         onChange={(event) => {
           changeLanguage(event.target.value);
