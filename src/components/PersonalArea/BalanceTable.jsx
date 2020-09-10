@@ -123,14 +123,6 @@ const BalanceTable = ({
                   </div>
                   <div className="balance-table__title-row">
                     <div
-                      onClick={() =>
-                        convertCrypto(wallet ? wallet.currency : "")
-                      }
-                      className="balance-table__buy-button"
-                    >
-                      <p>{t("balance_table__buy")}</p>
-                    </div>
-                    <div
                       onClick={() => {
                         setIsCashInPopup(true);
                         setCurrentWalletPopup(wallet);
@@ -147,7 +139,7 @@ const BalanceTable = ({
                       }
                       className="balance-table__buy-button"
                     >
-                      <p>Купить</p>
+                      <p>{t("balance_table__buy")}</p>
                     </div>
                   </div>
                 </div>
