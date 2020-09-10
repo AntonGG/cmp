@@ -45,7 +45,7 @@ class PersonalArea extends Component {
       onPopupClose,
       isPreloader,
     } = this.props;
-
+    //payment_history = [{date: Date.now(), status: "Pending", address:"0xde0b2956..", amount:0.001,val:'ETC'}]
     return (
       <div className="personal-area">
         <p className="title">Личный кабинет</p>

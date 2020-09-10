@@ -21,14 +21,13 @@ const CashInPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
   }
 
   return (
-    <div className="cash-in-popup">
-      <div className="cash-in-popup__container">
+    <div className="popup__screen">
+      <div className="popup__container">
+        <div onClick={() => setIsPopupFalse()}>
+          <div className="cl-btn-7"></div>
+        </div>
         <div className="cash-in-popup__title">
           <p>Пополнить {wallet.currency}</p>
-
-          <div onClick={() => setIsPopupFalse()}>
-            <div className="cl-btn-7"></div>
-          </div>
         </div>
         <div className="cash-in-popup__input">
           <input

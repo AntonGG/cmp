@@ -5,20 +5,33 @@ import "../../sass/appBar.sass";
 import RightMenu from "../../components/AppBar/RightMenu/RightMenu";
 import { connect } from "react-redux";
 import { logout } from "../../actions/Auth";
+import "../../sass/collapsible.sass"
 
 class AppBar extends Component {
+  constructor(props) {
+    super(props)
+    this.collapsible = React.createRef()
+  }
+  toggleMenu() {
+    this.collapsible.current.classList.toggle("collapsible-visible")
+  }
   render() {
     return (
       <div className="app-bar">
-        <div className="app-bar_left-container">
-          <img className="app-bar_logo" src={logo} alt="Logo" />
-          <LeftMenu />
+        <header>
+           <img className="app-bar_logo" src={logo} alt="Logo" />
+           <button className="hide-md menu-button" onClick={()=>{this.toggleMenu()}}>
+             <span className="menu-button-img"></span>
+           </button>
+        </header>
+        <div class="collapsible collapsible-smaller-md app-bar__menu-container" ref={this.collapsible}>
+            <LeftMenu />
+            <RightMenu
+              isAuth={this.props.isAuth}
+              onLogout={() => this.props.onLogout(this.props.history)}
+              history={this.props.history}
+            />
         </div>
-        <RightMenu
-          isAuth={this.props.isAuth}
-          onLogout={() => this.props.onLogout(this.props.history)}
-          history={this.props.history}
-        />
       </div>
     );
   }

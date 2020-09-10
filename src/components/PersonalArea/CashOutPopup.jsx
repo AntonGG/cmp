@@ -30,14 +30,13 @@ const CashOutPopup = ({
   }
 
   return (
-    <div className="cash-out-popup">
-      <div className="cash-out-popup__container">
+    <div className="popup__screen">
+      <div className="popup__container">
+        <div onClick={() => setIsPopupFalse()}>
+          <div className="cl-btn-7"></div>
+        </div>
         <div className="cash-out-popup__title">
           <p>Вывод CMP</p>
-
-          <div onClick={() => setIsPopupFalse()}>
-            <div className="cl-btn-7"></div>
-          </div>
         </div>
         <div className="cash-out-popup__table">
           <div className="cash-out-popup__item">
@@ -48,7 +47,7 @@ const CashOutPopup = ({
             <p>Комиссия</p>
             <p>0.1 CMP</p>
           </div>
-          <div className="cash-out-popup__item">
+          <div className="cash-out-popup__item responsive-input-container">
             <p>Сумма вывода</p>
             <input
               onChange={(event) => setAmount(event.target.value)}
@@ -59,7 +58,7 @@ const CashOutPopup = ({
               step="0.01"
             />
           </div>
-          <div className="cash-out-popup__item">
+          <div className="cash-out-popup__item responsive-input-container">
             <p>Адрес получателя CMP</p>
             <input
               onChange={(event) => setAddress(event.target.value)}

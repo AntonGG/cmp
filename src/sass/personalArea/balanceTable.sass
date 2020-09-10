@@ -1,27 +1,8 @@
-=button($backgroundColor, $textColor: #000000)
-    cursor: pointer
-    height: 40px
-    width: 130px
-    margin-right: 5px
-    border-radius: 10px
-    border: none
-    background-color: $backgroundColor
-    color: $textColor
-    font-weight: bold
-    display: flex
-    justify-content: center
-    align-items: center
-    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.14)
-    &:hover
-        background-color: #d2d2d2
-    &:active
-        transform: translateY(2px)
+@import 'src/sass/responsiveBreakpoints'   
+@import 'src/sass/componentMixins'
 
 .balance-table
-    background-color: #ffffff
-    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.14)
-    border-radius: 25px
-    margin-bottom: 15px
+    +card
     padding: 15px
 
 .balance__refresh-logo-div
@@ -29,10 +10,13 @@
     padding: 0
     display: flex
     flex-direction: row
+    align-items: baseline
     img
         width: 25px
         height: 25px
         right: 20px
+        display: block
+        margin-right: 5px
         &:active
             transform: translateY(2px)
     .balance__count
@@ -43,12 +27,7 @@
     .balance__dash__orange
         color: #ff7d3d
 
-.balance-table__bottom-block
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
-    p
+.balance-table__bottom-block p
         margin: 0
 
 .balance-table__div__black
@@ -68,32 +47,27 @@
         color: #ff7d3d
 
 .balance-table__title-row
-    width: 100%
-    display: flex
-    justify-content: flex-end
     margin-bottom: 10px
     margin-top: 10px
-    flex-direction: row-reverse
+    +buttonsAlignResponsive
     p
         margin: 0
 
 .balance-table__title-text
     font-weight: bold
 
-.balance-table__cmp-buttons
-    margin-bottom: 10px
 
 .balance-table__cash-button
     &__white
-        margin: 5px
         +button(#ffffff)
+        +buttonResponsive
     &__gray
-        margin: 5px
         +button(#545458, #ffffff)
+        +buttonResponsive
 
 .balance-table__cmp-buttons
-    margin-top: 10px
-    display: flex
+    margin: 10px auto
+    +buttonsAlignResponsive
 
 .balance-table__body
     display: flex
@@ -114,18 +88,21 @@
     border-radius: 10px
 
 .balance-table__currency-name
-    width: 140px
+    flex-basis: 10rem
+    text-align: left !important
 .balance-table__balance
-    width: 144px
+    flex-basis: 3rem
 .balance-table__balance-cmp-price
-    width: 80px
+    flex-basis: 3rem
+.balance-table__cmp-name
+    flex-basis: 10rem
+    text-align: right !important
 
 .balance-table__item-row-first
-    width: 530px
     display: flex
-.balance-table__item-row-middle
-    width: 230px
-.balance-table__item-row-last
+    justify-content: space-between
+    align-items: center
+    width: 100%
 
 .balance-table__item__active
     background: #f4f4f4
@@ -155,48 +132,10 @@
         select
             font-size: 20px
 
-.balance-table-cash-in__copy-button
-    position: absolute
-    cursor: pointer
-    top: 5px
-    right: 5px
-    height: 40px
-    width: 130px
-    border-radius: 10px
-    border: none
-    background-color: #BCBABB
-    color: #000000
-    font-weight: bold
-    display: flex
-    justify-content: center
-    align-items: center
-    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.14)
-    &:hover
-        background-color: #d2d2d2
-    &:active
-        transform: translateY(2px)
-
 .balance-table__buy-button
-    margin-left: 5px
-    cursor: pointer
-    height: 40px
-    width: 50%
-    border-radius: 10px
-    border: none
-    background-color: #CFFDD7
-    color: #000000
-    font-weight: bold
-    display: flex
-    justify-content: center
-    align-items: center
-    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.14)
-    &:hover
-        background-color: #d2d2d2
-    &:active
-        transform: translateY(2px)
+    +button(#CFFDD7, #000000)
+    +buttonResponsive(true)
 
 .balance-table__cash-in-button
     +button(#8085bf, #ffffff)
-    width: 50% !important
-    margin-right: 5px
-    margin-left: 0
+    +buttonResponsive(true)

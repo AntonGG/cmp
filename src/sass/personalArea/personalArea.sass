@@ -1,13 +1,12 @@
+@import 'src/sass/responsiveBreakpoints'
 .title
     font-weight: bold
     font-size: 25px
 
 .personal-area
-    display: flex
-    flex-direction: column
-    justify-content: center
+    +responsiveContainer
 
 
 .personal-area__body
-    display: flex
-    justify-content: space-between
+    +alignChildrenInResponsiveGrid
+
