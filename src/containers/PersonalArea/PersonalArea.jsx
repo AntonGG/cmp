@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withTranslation } from "react-i18next";
 import PaymentHistory from "../../components/PaymentHistory";
 import "../../sass/personalArea/personalArea.sass";
 import Partners from "../../components/PersonalArea/Partners";
@@ -44,53 +45,55 @@ class PersonalArea extends Component {
       popupMessage,
       onPopupClose,
       isPreloader,
+      t,
     } = this.props;
     //payment_history = [{date: Date.now(), status: "Pending", address:"0xde0b2956..", amount:0.001,val:'ETC'}]
     return (
-      <div className="personal-area">
-        <p className="title">Личный кабинет</p>
-        <MenuPersonalArea type={true} />
+     
+        <div className="personal-area">
+          <p className="title">{t("menu__finance")}</p>
+          <MenuPersonalArea type={true} />
 
-        {isPreloader ? (
-          <Preloader />
-        ) : (
-          <div className="personal-area__body">
-            <div>
-              <BalanceTable
-                wallets={wallets}
-                currentWallet={currentWallet}
-                setCurrentWallet={onSetCurrentWallet}
-                onGetWallets={onGetWallets}
-                currency_prices={currency_prices}
-                convertCrypto={onConvertCrypto}
-                withdrawCmp={onWithdrawCmp}
-                isError={isError}
-                isPopup={isPopup}
-                popupMessage={popupMessage}
-                popupClose={onPopupClose}
-              />
-              <PaymentHistory payment_history={payment_history} />
+          {isPreloader ? (
+            <Preloader />
+          ) : (
+            <div className="personal-area__body">
+              <div>
+                <BalanceTable
+                  wallets={wallets}
+                  currentWallet={currentWallet}
+                  setCurrentWallet={onSetCurrentWallet}
+                  onGetWallets={onGetWallets}
+                  currency_prices={currency_prices}
+                  convertCrypto={onConvertCrypto}
+                  withdrawCmp={onWithdrawCmp}
+                  isError={isError}
+                  isPopup={isPopup}
+                  popupMessage={popupMessage}
+                  popupClose={onPopupClose}
+                />
+                <PaymentHistory payment_history={payment_history} />
+              </div>
+              <div>
+                <Partners
+                  wallet={wallets.find((v) => v.currency === "CMP")}
+                  inviters={inviters}
+                />
+                <LastCompletedTasks last_tasks={last_tasks} />
+                <Rate
+                  currency_prices={currency_prices}
+                  cmpWallet={wallets.find((v) => v.currency === "CMP")}
+                />
+              </div>
             </div>
-            <div>
-              <Partners
-                wallet={wallets.find((v) => v.currency === "CMP")}
-                inviters={inviters}
-              />
-              <LastCompletedTasks last_tasks={last_tasks} />
-              <Rate
-                currency_prices={currency_prices}
-                cmpWallet={wallets.find((v) => v.currency === "CMP")}
-              />
-            </div>
-          </div>
-        )}
-        <StatusPopup
-          isPopup={isPopup}
-          popupClose={onPopupClose}
-          isError={isError}
-          statusMsg={popupMessage}
-        />
-      </div>
+          )}
+          <StatusPopup
+            isPopup={isPopup}
+            popupClose={onPopupClose}
+            isError={isError}
+            statusMsg={popupMessage}
+          />
+        </div>
     );
   }
 }
@@ -130,4 +133,7 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(PersonalArea);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withTranslation()(PersonalArea));

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import {
   getReferralCabinet,
@@ -28,10 +29,10 @@ export class PartnerCabinet extends Component {
     onGetReferralCabinet();
   }
   render() {
-    const { isPreloader, inviterlink, partners, referrals } = this.props;
+    const { isPreloader, inviterlink, partners, referrals, t } = this.props;
     return (
       <div className="partner-cabinet-area">
-        <p className="partner-cabinet__title">Партнерский кабинет</p>
+        <p className="partner-cabinet__title">{t("menu__partner_cabinet")}</p>
         <MenuPersonalArea type={false} />
         {isPreloader ? (
           <Preloader />
@@ -39,9 +40,9 @@ export class PartnerCabinet extends Component {
           <div className="partner-cabinet-area__body">
             <div className="partner-cabinet__left-block">
               <PartnerUrl inviterlink={inviterlink} />
+              <PartnersTable partners={partners} />
             </div>
             <div className="partner-cabinet__right-block">
-              <PartnersTable partners={partners} />
               <PartnerStatistics referrals={referrals} />
             </div>
           </div>
@@ -71,4 +72,7 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(PartnerCabinet);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withTranslation()(PartnerCabinet));

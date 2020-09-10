@@ -1,17 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "../../sass/auth/popup.sass";
 
 const Popup = ({ isPopup, popupClose }) => {
+  const { t } = useTranslation();
+
   return (
     isPopup && (
       <div className="popup">
-        <p>
-          Обязательно скопируйте и сохраните в защищенном месте вашу
-          мнемоническую фразу для входа в кабинет
-        </p>
-        <p>Теперь переключитесь на вкладку входа и войдите в кабинет</p>
+        <p>{t("auth__sign_up__success")}</p>
+        <p>{t("auth__sign_up__success_info")}</p>
         <div className="popup__button" onClick={popupClose}>
-          <p onClick={popupClose}>Ок</p>
+          <p onClick={popupClose}>OK</p>
         </div>
       </div>
     )

@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../../sass/auth/menu.sass";
 
 const Menu = (props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="auth-menu">
       <Link to="signIn">
@@ -15,7 +18,7 @@ const Menu = (props) => {
               props.type ? "auth-menu-tab__active" : ""
             }`}
           >
-            Вход
+            {t("auth_menu__sign_in")}
           </div>
         </div>
       </Link>
@@ -29,7 +32,7 @@ const Menu = (props) => {
               !props.type ? "auth-menu-tab__active" : ""
             }`}
           >
-            Регистрация
+            {t("auth_menu__sign_up")}
           </div>
         </div>
       </Link>

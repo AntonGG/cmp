@@ -1,11 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "../../sass/partnerCabinet/partnerUrl.sass";
 import copyToClipboard from "../../utils/copyToClipboard";
 
 const PartnerUrl = ({ inviterlink }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="partner-url">
-      <p>Ваша партнерская ссылка</p>
+      <p className="partner-url__text">{t("partner_url__text")}</p>
+      <hr />
       <div className="partner-url__input-div">
         <input
           className="partner-url__input"
@@ -16,7 +20,7 @@ const PartnerUrl = ({ inviterlink }) => {
           onClick={() => copyToClipboard(inviterlink)}
           className="auth__copy-button"
         >
-          <p>Копировать</p>
+          <p>{t("copy")}</p>
         </div>
       </div>
     </div>

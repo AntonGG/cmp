@@ -1,5 +1,6 @@
 import React from "react";
 import dateFormat from "dateformat";
+import { useTranslation } from "react-i18next";
 import "../sass/paymentHistory.sass";
 
 const paymentStatusSwitch = (status) => {
@@ -13,12 +14,13 @@ const paymentStatusSwitch = (status) => {
 };
 
 const PaymentHistory = ({ payment_history }) => {
+  const { t } = useTranslation();
   return (
     <div className="payment-history">
       <div className="payment-history__menu">
-        <p className="payment-history__title">История транзакций</p>
+        <p className="payment-history__title">{t("payment_history")}</p>
         <button className="payment-history__download-button">
-          Скачать отчет
+          {t("download_report")}
         </button>
       </div>
       <hr />
@@ -47,7 +49,7 @@ const PaymentHistory = ({ payment_history }) => {
         </div>
       ) : (
         <div className="payment-history__not-found">
-          <p>У вас пока ничего нет</p>
+          <p>{t("you_have_nothing_yet")}</p>
         </div>
       )}
     </div>

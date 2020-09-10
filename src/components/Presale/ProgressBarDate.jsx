@@ -1,8 +1,11 @@
 import moment from "moment";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "../../sass/presale/progressBarDate.sass";
 
 const ProgressBarDate = ({ ico_info }) => {
+  const { t } = useTranslation();
+
   if (!ico_info) {
     return "";
   }
@@ -17,13 +20,13 @@ const ProgressBarDate = ({ ico_info }) => {
       <div className="progress-bar-date__title">
         <div className="progress-bar-date__title-item-left">
           <p>{moment(Number(ico_info.start_date) * 1000).format("MMM Do")}</p>
-          <p>rICO start</p>
+          <p>rICO {t("progress_bar_date_start")}</p>
         </div>
         <div className="progress-bar-date__title-item-right">
           <p>
             {moment(Number(ico_info.presale_end_date) * 1000).format("MMM Do")}
           </p>
-          <p>rICO end</p>
+          <p>rICO {t("progress_bar_date_end")}</p>
         </div>
       </div>
       <div className="progress-bar-date__container">

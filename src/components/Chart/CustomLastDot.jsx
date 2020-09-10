@@ -1,6 +1,9 @@
 import React, { memo } from "react";
+import { useTranslation } from "react-i18next";
 
 const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
+  const { t } = useTranslation();
+
   const x = cx > 900 ? cx - 230 : cx - 114;
   const y = cy - 240;
 
@@ -46,7 +49,7 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
           textAnchor="middle"
           wordSpacing={2}
         >
-          Продано CMP
+          {t("custom_last_dot__cmp_sold")}
         </text>
         <text
           className="custom-dot-text"
@@ -68,7 +71,7 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
           fontSize={10}
           textAnchor="middle"
         >
-          Сбор в USDT
+          {t("custom_last_dot__collection_at_usdt")}
         </text>
         <text
           className="custom-dot-text-sbor"
@@ -90,7 +93,7 @@ const CustomLastDot = memo(({ cx, cy, payload, ico_info }) => {
           fontSize={10}
           textAnchor="middle"
         >
-          Commit Phase
+          {t("custom_last_dot__commit_phase")}
         </text>
 
         <defs>

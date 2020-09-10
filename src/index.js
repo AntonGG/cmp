@@ -7,6 +7,8 @@ import store from "./store";
 import { HashRouter } from "react-router-dom";
 import history from "./history";
 import "./sass/index.sass";
+import './i18n';
+
 ReactDOM.render(
   <Provider store={store}>
     <HashRouter history={history}>

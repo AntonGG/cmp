@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 import CustomLastDot from "./CustomLastDot";
 import CustomAxisTick from "./CustomAxisTick";
 import CustomTooltip from "./CustomTooltip";
@@ -27,6 +28,7 @@ const createTicks = (startUtc, endUtc, intervalDays) => {
 };
 
 const Chart = memo(({ ico_info }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     // const getElem = (index) =>
     //   document.querySelector(
@@ -70,7 +72,7 @@ const Chart = memo(({ ico_info }) => {
     const ticks = domainToday.ticks(timeDay.every(5));
     return (
       <div className="chart">
-        <p className="chart__title">Капитализация</p>
+        <p className="chart__title"> {t("presale__title__capitalization")}</p>
         <AreaChart width={1140} height={454}>
           <defs>
             <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">

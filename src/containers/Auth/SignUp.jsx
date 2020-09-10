@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withTranslation } from "react-i18next";
 import "../../sass/auth/auth.sass";
 import Menu from "../../components/Auth/Menu";
 import { getMnemonic, popupClose, signUp } from "../../actions/Auth/index";
-import { connect } from "react-redux";
 import copyToClipboard from "../../utils/copyToClipboard";
 import Loading from "../../components/Loading";
 import ErrorBlock from "../../components/ErrorBlock";
@@ -18,17 +19,18 @@ class SignUp extends Component {
       isPopup,
       popupMsg,
       onPopupClose,
+      t,
     } = this.props;
 
     return (
       <div className="auth">
         <Menu type={false} />
         <div className="auth__text-area">
-          <h3>Регистрация</h3>
+          <h3>{t("auth__sign_up")}</h3>
           <div className="auth__input-div">
             <input
               className="auth__input"
-              placeholder="Мнемоническая фраза"
+              placeholder={t("auth__mnemonic_phrase")}
               readOnly="readOnly"
               value={mnemonic}
             />
@@ -36,21 +38,25 @@ class SignUp extends Component {
               onClick={() => copyToClipboard(mnemonic)}
               className="auth__copy-button"
             >
-              <p>Копировать</p>
+              <p>{t("copy")}</p>
             </div>
           </div>
           <div onClick={() => onGetMnemonic()} className="auth__button">
             {this.props.isLoadingGetMnemonic ? (
               <Loading />
             ) : (
-              "Получить мнемоническую фразу"
+              t("auth__get_mnemonic_phrase")
             )}
           </div>
           <div
             onClick={() => onSignUp(mnemonic, history, invite)}
             className="auth__button"
           >
-            {this.props.isLoadingSignUp ? <Loading /> : "Зарегистрироваться"}
+            {this.props.isLoadingSignUp ? (
+              <Loading />
+            ) : (
+              t("auth__sign_up__button")
+            )}
           </div>
           <Popup
             isPopup={isPopup}
@@ -87,4 +93,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withTranslation()(SignUp));
