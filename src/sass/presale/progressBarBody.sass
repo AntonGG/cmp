@@ -1,3 +1,6 @@
+@import 'src/sass/responsiveBreakpoints' 
+@import 'src/sass/componentMixins'
+    
 =progress-bar-body__filler($backgroundColor)
     position: absolute
     z-index: 999
@@ -11,12 +14,10 @@
     justify-content: flex-end
     align-items: center
     padding-right: 10px
+    box-sizing: border-box
 
 .progress-bar-body
-    display: flex
-    justify-content: center
-    flex-direction: column
-    align-items: center
+    +responsiveContainer
 
 .progress-bar-body__title
     font-size: 36px
@@ -25,15 +26,22 @@
     margin-bottom: 0
 
 .progress-bar-body__title-container
-    width: 1140px
     display: flex
     justify-content: space-between
+    @media (max-width: $md)
+        flex-direction: column
+        align-items: stretch
 
 .progress-bar-body__title-item-left
     text-align: left
 
 .progress-bar-body__title-item-right
     text-align: right
+    @media (max-width: $md)
+        text-align: left
+        &>*:first-child
+            margin-top: 0
+        
 
 .progress-bar-body__title-price
     font-size: 24px
@@ -41,7 +49,6 @@
     margin: 0
 .progress-bar-body__container
     position: relative
-    width: 1140px
     height: 32px
 
 .progress-bar-body__base
@@ -55,6 +62,7 @@
     justify-content: flex-end
     align-items: center
     padding-right: 10px
+    box-sizing: border-box
 
 .progress-bar-body__filler-text
     width: 100%
@@ -75,10 +83,11 @@
 
 .progress-bar-body__footer-container
     display: flex
-    justify-content: flex-end
-    width: 1140px
-    text-align: right
+    @media (min-width: $md)
+        justify-content: flex-end
 
 .progress-bar-body__footer-item-right
     text-align: left
-    margin-right: 100px
+    @media (min-width: $md)
+        margin-right: 100px
+

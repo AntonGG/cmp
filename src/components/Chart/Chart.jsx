@@ -7,6 +7,7 @@ import {
   Area,
   Tooltip,
   Legend,
+  ResponsiveContainer
 } from "recharts";
 import { useTranslation } from "react-i18next";
 import CustomLastDot from "./CustomLastDot";
@@ -73,7 +74,9 @@ const Chart = memo(({ ico_info }) => {
     return (
       <div className="chart">
         <p className="chart__title"> {t("presale__title__capitalization")}</p>
-        <AreaChart width={1140} height={454}>
+        <CustomLegend ico_info={ico_info} />
+        <ResponsiveContainer width="100%" height={350}>
+        <AreaChart>
           <defs>
             <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#6ae53e" stopOpacity={0.7} />
@@ -147,10 +150,10 @@ const Chart = memo(({ ico_info }) => {
           />
 
           <Tooltip content={<CustomTooltip />} />
-          <Legend
+          {/* <Legend
             verticalAlign="top"
             content={<CustomLegend ico_info={ico_info} />}
-          />
+          /> */}
           <XAxis
             type="number"
             dataKey="date"
@@ -168,6 +171,7 @@ const Chart = memo(({ ico_info }) => {
             tickLine={false}
           />
         </AreaChart>
+        </ResponsiveContainer>
       </div>
     );
   }

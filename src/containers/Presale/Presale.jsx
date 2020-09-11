@@ -23,9 +23,9 @@ export class Presale extends Component {
           <>
             <PresaleTitle ico_info={ico_info} />
             <Chart ico_info={ico_info} />
-            {/*<ProgressBarDate ico_info={ico_info}/>
+            <ProgressBarDate ico_info={ico_info}/>
             <ProgressBarBody ico_info={ico_info} />
-            <Explanation /> */}
+            <Explanation />
           </>
         )}
       </div>

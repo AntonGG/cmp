@@ -48,6 +48,7 @@ const CustomLegend = ({ ico_info }) => {
           <p className="custom-legend__item-volume">{clouds.volume} USD</p>
         </div>
       </div>
+      <div className="custom-legend__grid-seporator"></div>
       <div className="custom-legend__item">
         <img className="custom-legend__logo" src={PriceLogo} alt="PriceLogo" />
         <div>
