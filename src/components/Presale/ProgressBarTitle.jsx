@@ -11,7 +11,7 @@ const ProgressBarTitle = ({ ico_info }) => {
       <img className="progress-bar__logo" src={progressBar} alt="ProgressBar" />
       <div
         style={{ width: percents > 9.5 ? percents : "9.5%" }}
-        className="progress-ber__filler"
+        className="progress-bar__filler"
       ></div>
     </div>
   );

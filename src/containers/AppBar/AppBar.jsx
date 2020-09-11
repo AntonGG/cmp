@@ -20,11 +20,11 @@ class AppBar extends Component {
       <div className="app-bar">
         <header>
            <img className="app-bar_logo" src={logo} alt="Logo" />
-           <button className="hide-md menu-button" onClick={()=>{this.toggleMenu()}}>
+           <button className="hide-lg menu-button" onClick={()=>{this.toggleMenu()}}>
              <span className="menu-button-img"></span>
            </button>
         </header>
-        <div class="collapsible collapsible-smaller-md app-bar__menu-container" ref={this.collapsible}>
+        <div class="collapsible collapsible-smaller-lg app-bar__menu-container" ref={this.collapsible}>
             <LeftMenu />
             <RightMenu
               isAuth={this.props.isAuth}

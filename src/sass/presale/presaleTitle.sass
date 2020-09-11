@@ -1,14 +1,21 @@
+@import 'src/sass/responsiveBreakpoints' 
+@import 'src/sass/componentMixins'
+
 .presale-title
-    display: flex
-    align-items: center
+    +responsiveContainer
+    +alignChildrenInResponsiveGrid
+    padding: 60px 0
 
 .presale-title__button-container
     display: flex
+    @media (max-width: $md)
+        justify-content: center
 
 .presale-title__button
     display: flex
     justify-content: center
     align-items: center
+    position: relative
     img
         width: 250px
     &:active
@@ -19,13 +26,10 @@
     font-weight: 500
 
 .presale-title__left
-    margin: 60px 195px 60px 0px
 
 .presale-title__right
     position: relative
-    margin: 60px 0px 60px 60px
     padding: 55px
-    width: 486px
     height: 175px
     border-radius: 45px
     background-color: #ffffff
@@ -45,7 +49,7 @@
     position: absolute
     width: 1px
     height: 95px
-    left: 435px
+    right: 93px
     top: 137px
     background-color: #00000090
     z-index: 0
@@ -65,6 +69,9 @@
     font-size: 28px
 
 .presale-title__button-text
-    margin-left: 15px
     position: absolute
+    margin: 0 20px
+    top: 50%
+    left: 15px
+    transform: translateY(-50%)
     color: white
