@@ -1,10 +1,9 @@
 @import 'src/sass/responsiveBreakpoints'
+@import 'src/sass/componentMixins'
 
 .footer
+    +alignChildrenResponsiveWithJustify("space-between")
     padding: 30px
-    display: flex
-    flex-direction: column
-    align-items: stretch
     a
         font-size: 13px
         color: #000000
@@ -22,33 +21,6 @@
     h6
         margin: 0 0 10px
     
-    &>*:not(:first-child)
-        margin: 20px 0
+
     &_right-block
-        &>*:not(:first-child)
-            margin: 20px 0 0
-        display: flex
-        flex-direction: column
-        align-items: stretch
-    @media (min-width: $md)
-        flex-direction: row
-        justify-content: space-between
-        align-items: flex-start
-        &>*:not(:first-child)
-            margin: 0 0 0 15px
-        &_right-block
-            &>*:not(:first-child)
-                margin: 0 0 0 15px
-            align-items: flex-start
-            flex-direction: row
-
-
-// @media (max-width: $sm)
-//     .footer
-//         flex-direction: column
-//         margin-bottom: 20px
-//         .footer_left-block)
-//             margin-top: 20px
-//         .footer_right-block
-//             margin-top: 20px
-//             flex-direction: column
+        +alignChildrenResponsiveWithJustify("right")

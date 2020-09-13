@@ -49,17 +49,25 @@ class ProgressBarBody extends Component {
       </p>
       <div className="progress-bar-body__title-container">
         <div className="progress-bar-body__title-item-left">
+          <section>
           <h6>{t("progress_bar_body__starting_price")}</h6>
           <p className="progress-bar-body__title-price">
             {ico_info.scales2.starting_price} USDT
           </p>
-          <p>{t("progress_bar_body__presale_phase")}</p>
+          </section>
+          <section>
+          <h6 className="no-mr">{t("progress_bar_body__presale_phase")}</h6>
+          </section>
         </div>
         <div className="progress-bar-body__title-item-right">
+          <section>
           <h6>{t("progress_bar_body__total_price")}</h6>
           <p>{ico_info.scales2.finale_price} CMP</p>
+          </section>
+          <section>
           <h6>{t("progress_bar_body__final_market_cap")}</h6>
           <p>{ico_info.scales2.final_market_cup} CMP</p>
+          </section>
         </div>
       </div>
       <div className="progress-bar-body__container">
@@ -100,17 +108,14 @@ class ProgressBarBody extends Component {
 
       <div className="progress-bar-body__footer-container">
         <div className="progress-bar-body__footer-item-right">
-          <p>
-            {`${t("progress_bar_body__expected_supply_at_network_launch")} ${
-              ico_info.scales2.network_launch
-            }`}
-          </p>
-          <p>{`${ico_info.scales2.total_amount} CMP`} </p>
-          <p>
-            {`${t("progress_bar_body__future_market_cap")}: ${
-              ico_info.scales2.future_market_cap
-            } USD`}
-          </p>
+          <section>
+            <h6>{t("progress_bar_body__expected_supply_at_network_launch")} {ico_info.scales2.network_launch}</h6>
+            <p>{ico_info.scales2.total_amount} CMP</p>
+          </section>
+          <section>
+            <h6>{t("progress_bar_body__future_market_cap")}</h6>
+            <p>{ico_info.scales2.future_market_cap} USD</p>
+          </section>
         </div>
       </div>
     </div>

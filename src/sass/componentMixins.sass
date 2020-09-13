@@ -77,3 +77,26 @@
         flex-direction: column
         align-items: stretch
         text-align: center
+
+=alignChildrenResponsiveWithJustify($margin-and-justify-large-screen: "left", $margin-smaller-sm: 20px, $margin-larger-sm: 15px)
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    &>*:not(:first-child)
+        margin: $margin-smaller-sm 0 0
+    @media (min-width: $md)
+        flex-direction: row
+        @if ($margin-and-justify-large-screen == "left")
+            justify-content: flex-start
+        @else if ($margin-and-justify-large-screen == "right")
+            justify-content: flex-end
+        @else 
+            justify-content: space-between
+        align-items: flex-start
+        &>*:not(:first-child)
+            margin: 0
+            @if ($margin-and-justify-large-screen == "left")
+                margin-right: $margin-larger-sm
+            @else if ($margin-and-justify-large-screen == "right")
+                margin-left: $margin-larger-sm
+
