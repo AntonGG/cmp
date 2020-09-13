@@ -1,12 +1,7 @@
+@import 'src/sass/responsiveBreakpoints'
+@import 'src/sass/componentMixins'
 .rate
-    width: 550px
-    background-color: #ffffff
-    border-radius: 15px
-    padding-top: 15px
-    padding-bottom: 15px
-    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.14)
-    hr
-        border: solid 2px #f5f5f5
+    +card
 
 .rate__title
     font-weight: bold
@@ -26,23 +21,43 @@
 
 .rate__table-row
     display: flex
-    justify-content: space-between
+    flex-direction: row
+    justify-content: center
     padding-left: 20px
     padding-right: 20px
+    &__active
+        background-color: #f5f5f5
+    @media (max-width: $xs)
+        flex-direction: column
 
-.rate__table-row__active
-    background-color: #f5f5f5
-
+.rate-table__item-left
+    flex-grow: 0
+    flex-basis: 5rem
+    @media (max-width: $xs)
+        flex-basis: auto
 .rate-table__item-right
     display: flex
-    p
-        text-align: center
+    flex-grow: 1
+    flex-basis: 0
+    justify-content: flex-end
+    text-align: center
+    @media (max-width: $xs)
+        flex-basis: auto
+        flex-grow: 0
 
 .rate-table__item-one-currency
-    width: 70px
+    flex-basis: 5rem
 
 .rate-table__item-price-cmp
-    width: 145px
+    flex-basis: 10rem
 
 .rate-table__item-symbol-equal
-    width: 30px
+    flex-basis: 1rem
+
+@media (max-width: $xs)
+    .rate-table__item-one-currency, .rate-table__item-price-cmp
+        flex-grow: 1
+    .rate-table__item-one-currency
+        text-align: left
+    .rate-table__item-price-cmp
+        text-align: right

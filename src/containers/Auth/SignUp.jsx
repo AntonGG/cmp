@@ -8,6 +8,7 @@ import copyToClipboard from "../../utils/copyToClipboard";
 import Loading from "../../components/Loading";
 import ErrorBlock from "../../components/ErrorBlock";
 import Popup from "../../components/Auth/Popup";
+import copyIcon from "../../images/copy.svg"
 class SignUp extends Component {
   render() {
     const {
@@ -39,24 +40,24 @@ class SignUp extends Component {
               className="auth__copy-button"
             >
               <p>{t("copy")}</p>
+              <img src={copyIcon}></img>
             </div>
           </div>
           <div onClick={() => onGetMnemonic()} className="auth__button">
             {this.props.isLoadingGetMnemonic ? (
               <Loading />
-            ) : (
-              t("auth__get_mnemonic_phrase")
-            )}
+            ) : ("")}
+            <span class={(this.props.isLoadingGetMnemonic ? " auth__button__content-invisible" : "")}>
+              {t("auth__get_mnemonic_phrase")}
+            </span>
           </div>
-          <div
-            onClick={() => onSignUp(mnemonic, history, invite)}
-            className="auth__button"
-          >
+          <div onClick={() => onSignUp(mnemonic, history, invite)} className="auth__button">
             {this.props.isLoadingSignUp ? (
               <Loading />
-            ) : (
-              t("auth__sign_up__button")
-            )}
+            ) : ("")}
+            <span class={(this.props.isLoadingSignUp ? " auth__button__content-invisible" : "")}>
+              {t("auth__sign_up__button")}
+            </span>
           </div>
           <Popup
             isPopup={isPopup}

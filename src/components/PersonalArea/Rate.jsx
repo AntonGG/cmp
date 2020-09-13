@@ -24,7 +24,7 @@ const Rate = ({ currency_prices, cmpWallet }) => {
                 i % 2 === 0 ? "" : "rate__table-row__active"
               }`}
             >
-              <div className="rate-table__item-left">
+              <div className="rate-table__item-left font__bold">
                 <p>{getCurrencyFullName(price.currency)}</p>
               </div>
               <div className="rate-table__item-right">

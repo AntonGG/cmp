@@ -1,58 +1,22 @@
+@import 'src/sass/componentMixins'
 .partner-url
-    background-color: #ffffff
-    padding: 20px
-    height: 100px
-    border-radius: 15px
-    padding: 15px
-    margin-bottom: 15px
-    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.14)
-    hr
-        border: solid 2px #f5f5f5
-
+    +card
+    padding: 20px 0
+    box-sizing: border-box
 
 .partner-url__text
+    margin: 5px 15px
     font-weight: bold
     font-size: 21px
-    margin-top: 5px
-    margin-bottom: 5px
-    margin-left: 15px
-
-.partner-url__input
-    display: block
-    height: 50px
-    width: 96%
-    padding-left: 15px
-    font-size: 20px
-    border-width: 2px
-    border-color: #CCCCCC
-    background-color: #EBEBEB
-    color: #000000
-    border-style: none
-    border-radius: 10px
-    margin-top: 12px
-    margin-bottom: 15px
-    -webkit-appearance: none /* Убираем рамку в Chrome и Safari */
-
 .partner-url__input-div
+    margin: 0 20px
     position: relative
+    border: 2px #ccc
+    input
+        height: 50px !important
+        width: 100%
+        box-sizing: border-box
+        +input
 
 .partner-url__copy-button
-    position: absolute
-    cursor: pointer
-    top: 6px
-    right: 10px
-    height: 40px
-    border-radius: 10px
-    border: none
-    background-color: #73bc62
-    color: #ffffff
-    font-weight: bold
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 40px
-    &:hover
-        background-color: #5cbf2a
-    &:active
-        top: 9px
-        right: 8
+    +copyButton

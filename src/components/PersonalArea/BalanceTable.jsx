@@ -118,18 +118,10 @@ const BalanceTable = ({
                       <p className="balance-table__balance-cmp-price">
                         {wallet.cmp}
                       </p>
-                      <p className="font__bold"> (CMP)</p>
+                      <p className="font__bold balance-table__cmp-name"> (CMP)</p>
                     </div>
                   </div>
                   <div className="balance-table__title-row">
-                    <div
-                      onClick={() =>
-                        convertCrypto(wallet ? wallet.currency : "")
-                      }
-                      className="balance-table__buy-button"
-                    >
-                      <p>{t("balance_table__buy")}</p>
-                    </div>
                     <div
                       onClick={() => {
                         setIsCashInPopup(true);
@@ -140,6 +132,14 @@ const BalanceTable = ({
                       <p>
                         {t("balance_table__cash_in")} {wallet.currency}
                       </p>
+                    </div>
+                    <div
+                      onClick={() =>
+                        convertCrypto(wallet ? wallet.currency : "")
+                      }
+                      className="balance-table__buy-button"
+                    >
+                      <p>{t("balance_table__buy")}</p>
                     </div>
                   </div>
                 </div>

@@ -1,3 +1,6 @@
+@import 'src/sass/responsiveBreakpoints' 
+@import 'src/sass/componentMixins'
+
 $progressBarHeight: 4px
 
 =progress-bar-date__filler($backgroundColor)
@@ -9,10 +12,7 @@ $progressBarHeight: 4px
     border-radius: 10px 0 0 10px
 
 .progress-bar-date
-    display: flex
-    justify-content: center
-    flex-direction: column
-    align-items: center
+    +responsiveContainer
 
 .progress-bar-date__title
     font-size: 14px
@@ -21,7 +21,6 @@ $progressBarHeight: 4px
     margin-bottom: 0
 
 .progress-bar-date__title
-    width: 1140px
     display: flex
     justify-content: space-between
 
@@ -36,7 +35,6 @@ $progressBarHeight: 4px
 
 .progress-bar-date__container
     position: relative
-    width: 1140px
     height: $progressBarHeight
     display: flex
     align-items: center
@@ -53,22 +51,17 @@ $progressBarHeight: 4px
     display: flex
     align-items: center
 
-.progress-bar-date__base-line-right
+.progress-bar-date__base-line-right, .progress-bar-date__filler-line-left
     width: 4px
     height: 20px
-    z-index: 99999999
+    z-index: 500
     background-color: black
 
-.progress-bar-date__filler-line-left
-    width: 4px
-    height: 20px
-    z-index: 99999999
-    background-color: black
 
 .progress-bar-date__filler-line-right
     width: 4px
     height: 20px
-    z-index: 99999999
+    z-index: 500
     background-color: red
 
 .progress-bar-date__filler-gray

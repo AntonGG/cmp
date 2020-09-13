@@ -1,12 +1,9 @@
+@import 'src/sass/responsiveBreakpoints'
+@import 'src/sass/componentMixins'
+
 .footer
-    margin-top: 30px
-    margin-bottom: 30px
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    p
-        margin-top: 0
-        font-weight: bold
+    +alignChildrenResponsiveWithJustify("space-between")
+    padding: 30px
     a
         font-size: 13px
         color: #000000
@@ -15,26 +12,15 @@
             color: #ffffff
     img
         width: 50px
-        margin-bottom: 16px
-    .footer_left-block
-        display: flex
-        flex-direction: column
-    .footer_right-block
-        display: flex
-        flex-direction: row
-        div
-            display: flex
-            flex-direction: column
-            margin-left: 15px
+        margin-bottom: 10px
+    ul
+        padding: 0
+        margin: 0
+    li
+        display: block
+    h6
+        margin: 0 0 10px
+    
 
-@media (max-width: 600px)
-    .footer
-        flex-direction: column
-        margin-bottom: 20px
-        .footer_left-block
-            margin-top: 20px
-        .footer_right-block
-            margin-top: 20px
-            flex-direction: column
-    .app-bar
-        flex-direction: column
+    &_right-block
+        +alignChildrenResponsiveWithJustify("right")

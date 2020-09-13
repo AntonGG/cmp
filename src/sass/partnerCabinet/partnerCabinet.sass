@@ -1,13 +1,12 @@
+@import 'src/sass/responsiveBreakpoints'
+
 .partner-cabinet__title
     font-weight: bold
     font-size: 25px
 
 .partner-cabinet-area
-    display: flex
-    flex-direction: column
-    justify-content: center
+    +responsiveContainer
 
 
 .partner-cabinet-area__body
-    display: flex
-    justify-content: space-between
+    +alignChildrenInResponsiveGrid

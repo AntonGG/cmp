@@ -47,7 +47,7 @@ class PersonalArea extends Component {
       isPreloader,
       t,
     } = this.props;
-
+    //payment_history = [{date: Date.now(), status: "Pending", address:"0xde0b2956..", amount:0.001,val:'ETC'}]
     return (
      
         <div className="personal-area">
