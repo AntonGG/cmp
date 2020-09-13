@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "../../sass/cashInPopup.sass";
 import copyToClipboard from "../../utils/copyToClipboard";
+import copyIcon from "../../images/copy.svg"
 
 const CashInPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
   const { t } = useTranslation();
@@ -42,6 +43,7 @@ const CashInPopup = ({ wallet, isPopup, setIsPopupFalse }) => {
             className="cash-in-popup__copy-button"
           >
             <p>{t("copy")}</p>
+            <img src={copyIcon}></img>
           </div>
         </div>
         <p>{t("cash_in_popup__info", { currency: wallet.currency })}</p>

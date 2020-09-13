@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import "../../sass/partnerCabinet/partnerUrl.sass";
 import copyToClipboard from "../../utils/copyToClipboard";
+import copyIcon from "../../images/copy.svg"
 
 const PartnerUrl = ({ inviterlink }) => {
   const { t } = useTranslation();
@@ -18,9 +19,10 @@ const PartnerUrl = ({ inviterlink }) => {
         />
         <div
           onClick={() => copyToClipboard(inviterlink)}
-          className="auth__copy-button"
+          className="partner-url__copy-button"
         >
           <p>{t("copy")}</p>
+          <img src={copyIcon}></img>
         </div>
       </div>
     </div>

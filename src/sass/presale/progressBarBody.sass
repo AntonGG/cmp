@@ -13,7 +13,7 @@
     display: flex
     justify-content: flex-end
     align-items: center
-    padding-right: 10px
+    padding-right: 0
     box-sizing: border-box
 
 .progress-bar-body
@@ -61,13 +61,15 @@
     display: flex
     justify-content: flex-end
     align-items: center
-    padding-right: 10px
     box-sizing: border-box
 
 .progress-bar-body__filler-text
     width: 100%
     text-align: right
     opacity: 0.2
+    margin-right: 0.5em
+    @media (min-width: $xl)
+        font-size: 1rem !important
     &:hover
         opacity: 1
 

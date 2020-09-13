@@ -45,6 +45,21 @@
     border: none /* Убираем рамку */
     outline: none /* Убираем свечение в Chrome и Safari */
     -webkit-appearance: none /* Убираем рамку в Chrome и Safari */
+
+=copyButton
+    +button(#ffffff, #000000)
+    position: absolute
+    top: calc( 50% - 20px )
+    right: 10px
+    width: auto
+    padding: 0 15px
+    p
+        display: none
+    @media(min-width: $sm)
+        p
+            display: block
+        img
+            display: none
 =card
     background-color: #ffffff
     border-radius: 15px
